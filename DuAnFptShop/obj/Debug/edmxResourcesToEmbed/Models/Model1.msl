@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FPTSHOPModelStoreContainer" CdmEntityContainer="FPTSHOPEntities5">
+    <EntitySetMapping Name="CameraFeatures">
+      <EntityTypeMapping TypeName="FPTSHOPModel.CameraFeature">
+        <MappingFragment StoreEntitySet="CameraFeature">
+          <ScalarProperty Name="CameraFeatureID" ColumnName="CameraFeatureID" />
+          <ScalarProperty Name="Feature" ColumnName="Feature" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CartItems">
+      <EntityTypeMapping TypeName="FPTSHOPModel.CartItem">
+        <MappingFragment StoreEntitySet="CartItem">
+          <ScalarProperty Name="CartItemID" ColumnName="CartItemID" />
+          <ScalarProperty Name="ShoppingCartID" ColumnName="ShoppingCartID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="FPTSHOPModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="CateID" ColumnName="CateID" />
+          <ScalarProperty Name="CateName" ColumnName="CateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriesSliders">
+      <EntityTypeMapping TypeName="FPTSHOPModel.CategoriesSlider">
+        <MappingFragment StoreEntitySet="CategoriesSlider">
+          <ScalarProperty Name="CategoriesSliderID" ColumnName="CategoriesSliderID" />
+          <ScalarProperty Name="CateSliderImage" ColumnName="CateSliderImage" />
+          <ScalarProperty Name="CateID" ColumnName="CateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colors">
+      <EntityTypeMapping TypeName="FPTSHOPModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="FPTSHOPModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="CusPhone" ColumnName="CusPhone" />
+          <ScalarProperty Name="CusGender" ColumnName="CusGender" />
+          <ScalarProperty Name="CusEmail" ColumnName="CusEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="FPTSHOPModel.OrderItem">
+        <MappingFragment StoreEntitySet="OrderItems">
+          <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="FPTSHOPModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="AddressDelivery" ColumnName="AddressDelivery" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethods">
+      <EntityTypeMapping TypeName="FPTSHOPModel.PaymentMethod">
+        <MappingFragment StoreEntitySet="PaymentMethods">
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="PaymentMethodName" ColumnName="PaymentMethodName" />
+          <ScalarProperty Name="PaymentMethodImage" ColumnName="PaymentMethodImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="FPTSHOPModel.Payment">
+        <MappingFragment StoreEntitySet="Payments">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="ShoppingCartID" ColumnName="ShoppingCartID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerformanceBatteries">
+      <EntityTypeMapping TypeName="FPTSHOPModel.PerformanceBattery">
+        <MappingFragment StoreEntitySet="PerformanceBattery">
+          <ScalarProperty Name="PerformanceBatteryID" ColumnName="PerformanceBatteryID" />
+          <ScalarProperty Name="Performance" ColumnName="Performance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PriceRanges">
+      <EntityTypeMapping TypeName="FPTSHOPModel.PriceRange">
+        <MappingFragment StoreEntitySet="PriceRange">
+          <ScalarProperty Name="PriceRangeID" ColumnName="PriceRangeID" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="FPTSHOPModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CateID" ColumnName="CateID" />
+          <ScalarProperty Name="ProName" ColumnName="ProName" />
+          <ScalarProperty Name="ProDecription" ColumnName="ProDecription" />
+          <ScalarProperty Name="NewPrice" ColumnName="NewPrice" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="Screen" ColumnName="Screen" />
+          <ScalarProperty Name="Camera" ColumnName="Camera" />
+          <ScalarProperty Name="CameraSelfie" ColumnName="CameraSelfie" />
+          <ScalarProperty Name="Ram" ColumnName="Ram" />
+          <ScalarProperty Name="Storage" ColumnName="Storage" />
+          <ScalarProperty Name="Cpu" ColumnName="Cpu" />
+          <ScalarProperty Name="Battery" ColumnName="Battery" />
+          <ScalarProperty Name="Sim" ColumnName="Sim" />
+          <ScalarProperty Name="OperatingSystem" ColumnName="OperatingSystem" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="LaunchTime" ColumnName="LaunchTime" />
+          <ScalarProperty Name="PriceRangeID" ColumnName="PriceRangeID" />
+          <ScalarProperty Name="PerformanceBatteryID" ColumnName="PerformanceBatteryID" />
+          <ScalarProperty Name="ScreenSizeID" ColumnName="ScreenSizeID" />
+          <ScalarProperty Name="CameraFeatureID" ColumnName="CameraFeatureID" />
+          <ScalarProperty Name="ProImage" ColumnName="ProImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductDiscounts">
+      <EntityTypeMapping TypeName="FPTSHOPModel.ProductDiscount">
+        <MappingFragment StoreEntitySet="ProductDiscounts">
+          <ScalarProperty Name="DiscountID" ColumnName="DiscountID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="DiscountType" ColumnName="DiscountType" />
+          <ScalarProperty Name="DiscountValue" ColumnName="DiscountValue" />
+          <ScalarProperty Name="DiscountDecription" ColumnName="DiscountDecription" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductNews">
+      <EntityTypeMapping TypeName="FPTSHOPModel.ProductNew">
+        <MappingFragment StoreEntitySet="ProductNews">
+          <ScalarProperty Name="ProductNewsID" ColumnName="ProductNewsID" />
+          <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
+          <ScalarProperty Name="NewsContent" ColumnName="NewsContent" />
+          <ScalarProperty Name="NewsImage" ColumnName="NewsImage" />
+          <ScalarProperty Name="NewsTags" ColumnName="NewsTags" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductQuestions">
+      <EntityTypeMapping TypeName="FPTSHOPModel.ProductQuestion">
+        <MappingFragment StoreEntitySet="ProductQuestion">
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="QuestionTitle" ColumnName="QuestionTitle" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductSliders">
+      <EntityTypeMapping TypeName="FPTSHOPModel.ProductSlider">
+        <MappingFragment StoreEntitySet="ProductSlider">
+          <ScalarProperty Name="ProductSliderID" ColumnName="ProductSliderID" />
+          <ScalarProperty Name="ProductSliderImage" ColumnName="ProductSliderImage" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScreenSizes">
+      <EntityTypeMapping TypeName="FPTSHOPModel.ScreenSize">
+        <MappingFragment StoreEntitySet="ScreenSize">
+          <ScalarProperty Name="ScreenSizeID" ColumnName="ScreenSizeID" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShoppingCarts">
+      <EntityTypeMapping TypeName="FPTSHOPModel.ShoppingCart">
+        <MappingFragment StoreEntitySet="ShoppingCart">
+          <ScalarProperty Name="ShoppingCartID" ColumnName="ShoppingCartID" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
+          <ScalarProperty Name="ReceiverPhone" ColumnName="ReceiverPhone" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="AddressDelivery" ColumnName="AddressDelivery" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="VoucherDiscount" ColumnName="VoucherDiscount" />
+          <ScalarProperty Name="FinalAmount" ColumnName="FinalAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProductColor" TypeName="FPTSHOPModel.ProductColor" StoreEntitySet="ProductColor">
+      <EndProperty Name="Color">
+        <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

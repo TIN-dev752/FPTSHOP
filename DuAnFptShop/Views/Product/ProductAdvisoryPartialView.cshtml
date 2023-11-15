@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DuAnFptShop.Models.ProductNew>
+
+<style>
+    .advisory-news {
+        display: flex;
+    }
+
+        .advisory-news .advisory-new {
+            width:25%;
+            padding: 10px;
+        }
+
+    .advisory-new img {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    .advisory-new p {
+        color: #444B52;
+        font-size: 15px;
+        padding: 10px 0;
+        cursor: pointer;
+    }
+
+        .advisory-new p:hover {
+            color: #0168FA;
+        }
+
+    .advisory-new span {
+        width: auto;
+        height: 24px;
+        background-color: #F8F9FA;
+        color: #6C757D;
+        border-radius: 5px;
+        padding: 3px 6px;
+        cursor: pointer;
+    }
+
+        .advisory-new span:hover {
+            background-color: #dee2e6;
+            color: #343a40;
+        }
+</style>
+
+<body>
+    <div class="advisory-news">
+        @foreach (var item in Model)
+        {
+            <div class="advisory-new">
+                <img src="@Url.Content(item.NewsImage)" />
+                <p>@Html.DisplayFor(modelitem => item.NewsTitle)</p>
+                <span>Đánh Giá - Tư Vấn</span>
+                <span>@Html.DisplayFor(modelitem => item.NewsTags)</span>
+            </div>
+        }
+    </div>
+</body>

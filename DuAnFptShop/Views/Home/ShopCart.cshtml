@@ -1,0 +1,326 @@
+﻿@model List<CartItem>
+@using DuAnFptShop.Models
+@{
+    ViewBag.Title = "ShopCart";
+    Layout = "~/Views/Shared/_MasterLayout1.cshtml";
+}
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/ShopCartCSS.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <a href="HomePage"><i class="fa-solid fa-chevron-left"></i> Tiếp tục mua sắm</a>
+                </div>
+            </div>
+        </div>
+        <div class="empty-card">
+            <div class="container">
+                <div class="empty-card-content">
+                    <div class="wrapper">
+                        <img src="~/images/empty-cart.jpg" />
+                        <h2>Chưa có sản phẩm nào trong giỏ hàng</h2>
+                        <p>Cùng mua sắm hàng ngàn sản phẩm tại FPTShop nhé!</p>
+                        <button>Mua hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shopping-items">
+            <div class="container">
+                <div class="shopping-items-content">
+                    <div class="shopping-items-content-wrapper">
+                        <h2 id="number-product">Có @ViewBag.TotalNumber sản phẩm trong giỏ hàng</h2>
+                        @foreach (var item in Model)
+                        {
+                        <div class="product-info">
+                            <div class="product-info-left">
+                                <a href="@Url.Action("ShopCart", "Home", new { id = item.ProductID })"><img src="@Url.Content(item.ImagePro)" /></a>
+                                <input type="checkbox" checked />
+                            </div>
+                            <div class="product-info-right">
+                                <div class="product-info-right-top">
+                                    <h2>@item.NamePro</h2>
+                                    <a herf="@Url.Action("Delete","Home",new { id = @item.ProductID})" onclick="return confirm('Xóa sản Phẩm');"><i class="fa-solid fa-trash"></i></a>@*<i class="fa-solid fa-trash"></i>*@
+                                </div>
+                                <div class="product-info-right-bottom">
+                                    <div class="color">
+                                        <div class="select-btn">
+                                            <p>Màu sắc</p>
+                                            <span class="btn-text">Xanh <i class="fa-solid fa-chevron-down"></i></span>
+                                        </div>
+                                        <ul class="color-options">
+                                            <li class="color-option">
+                                                <img src="~/images/Samsung-a23-bac-color.jpg" />
+                                                <p>Bạc</p>
+                                            </li>
+                                            <li class="color-option">
+                                                    <img src="~/images/Samsung-a23-den-color.jpg" />
+                                                    <p>Đen</p>
+                                                </li>
+                                                <li class="color-option">
+                                                    <img src="~/images/Samsung-a23-xanh-color.jpg" />
+                                                    <p>Xanh</p>
+                                                </li>
+                                        </ul>
+                                    </div>
+                                    <div class="quantity">
+                                        <p>@item.Number</p>
+                                        <button class="minus"><i class="fa-solid fa-minus"></i></button>
+                                        <input type="text" name="amount" id="amount" value="1" />
+                                        <button class="plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                    <div class="price">
+                                        <p class="newPrice" style="font-size:25px; color: red">@String.Format("{0:N0}", item.Price) <span style="text-decoration:underline">đ</span></p>
+                                        @*<p class="oldPrice">5.990.000đ</p>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                        <h3>Khuyến mãi theo sản phẩm</h3>
+                        <div class="promotion">
+                            <div class="promotion-content">
+                                <div class="promotion-title">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <h3>Giảm ngay 800,000đ</h3>
+                                </div>
+                                <div class="promotion-extra">
+                                    <i class="fa-solid fa-circle-plus"></i>
+                                    <h3>Tặng máy ép chậm Kalite trị giá 3.000.000đ <a href="">Xem chi tiết</a></h3>
+                                    <p>Không áp dụng đồng thời với các khuyến mãi sau:</p>
+                                    <p>- Giảm ngay 800,000đ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shopping-items-content-wrapper">
+                        <div class="order-promotion">
+                            <div class="order-promotion-content">
+                                <div class="order-promotion-content-header">
+                                    <h3>Khuyến mãi theo đơn hàng</h3>
+                                </div>
+                                <div class="order-promotion-content-body">
+                                    <h4>Khuyến mãi tặng kèm</h4>
+                                    <div class="order-promotion-title">
+                                        <img src="~/images/promo_ticket.jpg" />
+                                        <p>Đặc quyền trả góp 0% trả trước 0đ tại hệ thống S.Studio by FPT</p>
+                                    </div>
+                                    <div class="order-promotion-title">
+                                        <img src="~/images/promo_ticket.jpg" />
+                                        <p>Điện thoại - Samsung A-Series - Phiếu mua hàng 500,000đ mua tivi samsung</p>
+                                    </div>
+                                    <div class="order-promotion-title">
+                                        <img src="~/images/promo_ticket.jpg" />
+                                        <p>Thu cũ đổi mới trợ giá ngay 15% đến 2 triệu (MintPro)</p>
+                                    </div>
+                                    <a class="expand-btn"><i class="fa-solid fa-angles-down"></i> Xem thêm 1 khuyến mại</a>
+                                    <div class="order-promotion-title-expand">
+                                        <div class="order-promotion-title">
+                                            <img src="~/images/promo_ticket.jpg" />
+                                            <p>Điện Thoại - Mobifone - Mã giảm giá 170,000đ mua MobiFone 0Đ</p>
+                                        </div>
+                                        <a class="colapse-btn"><i class="fa-solid fa-angles-up"></i> Ẩn bớt 1 khuyến mại</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shopping-items-content-wrapper">
+                        <div class="delivery">
+                            <div class="delivery-option">
+                                <div class="delivery-option-title">
+                                    <i class="fa-solid fa-box"></i>
+                                    <h2>Chọn hình thức nhận hàng</h2>
+                                </div>
+                                <div class="delivery-radio">
+                                    <input type="radio" id="radio-1" name="radio" checked /><label for="radio-1">Giao hàng tận nơi</label>
+                                    <input type="radio" id="radio-2" name="radio" /><label for="radio-2">Nhận tại cửa hàng</label>
+                                </div>
+                            </div>
+                            <form class="infomation-form" method="post">
+                                <div class="infomation-booker">
+                                    <p>Thông tin người đặt</p>
+                                    <div class="infomation-booker-radio">
+                                        <input type="radio" id="Anh" name="radio" checked /><label for="Anh">Anh</label>
+                                        <input type="radio" id="Chi" name="radio" /><label for="Chi">Chị</label>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="text" class="nameUser" placeholder="Nhập họ và tên" maxlength="50" onkeyup="validateName()" />
+                                        <span class="name-error"></span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="text" class="phone" placeholder="Nhập số điện thoại" maxlength="10" onkeyup="validatePhone()" />
+                                        <span class="phone-error"></span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="email" class="Email" placeholder="Nhập Email (Không bắt buộc)" onkeyup="validateEmail()" />
+                                        <span class="email-error"></span>
+                                    </div>
+                                </div>
+                                <div class="infomation-receiver">
+                                    <p>Thông tin người nhận</p>
+                                    <div class="input-group">
+                                        <input type="text" class="nameReceiver" placeholder="Nhập họ và tên" maxlength="50" onkeyup="validateNameReceiver()" />
+                                        <span class="name-receiver-error"></span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="text" class="phoneNumberReceiver" placeholder="Nhập số điện thoại" maxlength="10" onkeyup="validatePhoneNumberReceiver()" />
+                                        <span class="phonenumber-receiver-error"></span>
+                                    </div>
+                                </div>
+                                <div class="select-box">
+                                    <div class="select-box-content">
+                                        <p>Địa chỉ nhận hàng</p>
+                                        <div class="select-option">
+                                            <input type="text" placeholder="Chọn Tỉnh/Thành phố" id="soValue" readonly name="" />
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="search">
+                                                <input type="text" placeholder="Nhập Tỉnh/Thành..." id="optionSearch" name="" />
+                                            </div>
+                                            <ul class="options">
+                                                <li>Hồ Chí Minh</li>
+                                                <li>Hà Nội</li>
+                                                <li>Đà Nẵng</li>
+                                                <li>Cần Thơ</li>
+                                                <li>Hải Phòng</li>
+                                                <li>Tỉnh An Giang</li>
+                                                <li>Tỉnh Bà Rịa - Vũng Tàu</li>
+                                                <li>Tỉnh Bình Dương</li>
+                                                <li>Tỉnh Bình Phước</li>
+                                                <li>Tỉnh Bình Thuận</li>
+                                            </ul>
+                                        </div>
+                                        <input type="text" placeholder="Nhập địa chỉ, tên đường" id="address-detail" maxlength="70" />
+                                        <p>Thời gian giao hàng</p>
+                                        <select class="delivery-time">
+                                            <option>Chỉ giao hàng trong giờ hành chính</option>
+                                            <option>Tất cả các ngày trong tuần</option>
+                                        </select>
+                                        <textarea rows="10" cols="50" placeholder="Thêm ghi chú (Ví dụ: Hãy gọi trước khi giao)"></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="services">
+                                <p>Chọn thêm các dịch vụ/ yêu cầu</p>
+                                <div class="request">
+                                    <label class="switch">
+                                        <input type="checkbox" />
+                                        <span class="slider"></span>
+                                    </label>
+                                    <p>Yêu cầu hỗ trợ kỹ thuật</p>
+                                    <i class="fa-solid fa-question"></i>
+                                    <p class="title-i">Nếu khách hàng có nhu cầu cài đặt, hướng dẫn sử dụng và các vấn đề thắc mắc liên quan tới sản phẩm đã chọn, vui lòng đánh dấu chọn để nhận được sự phục vụ tốt nhất từ nhân viên kỹ thuật của FPT Shop.</p>
+                                </div>
+                                <div class="request">
+                                    <label class="switch">
+                                        <input type="checkbox" />
+                                        <span class="slider"></span>
+                                    </label>
+                                    <p>Yêu cầu xuất hóa đơn điện tử</p>
+                                    <i class="fa-solid fa-question"></i>
+                                    <p class="title-i">Nếu quý khách có nhu cầu xuất hoá đơn cho đơn hàng, vui lòng đánh dấu chọn và điền thông tin, hệ thống sẽ xuất hóa đơn theo thông tin quý khách đã nhập.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shopping-items-content-wrapper">
+                        <div class="payment-method">
+                            <div class="payment-method-content">
+                                <div class="payment-method-title">
+                                    <i class="fa-solid fa-money-bill-1-wave"></i>
+                                    <h2>Chọn hình thức thanh toán</h2>
+                                </div>
+                                <div class="methods">
+                                    <div class="method">
+                                        <input type="radio" id="paymentMethod1" name="payment" />
+                                        <img src="~/images/ThanhToanKhiNhanHang.png" />
+                                        <p>Thanh toán khi nhận hàng</p>
+                                    </div>
+                                    <div class="method">
+                                        <input type="radio" id="paymentMethod2" name="payment" />
+                                        <img src="~/images/vnpay.png" />
+                                        <p>
+                                            Thanh toán bằng thẻ ATM nội địa (Qua VNPay)
+                                        </p>
+                                    </div>
+                                    <div class="method">
+                                        <input type="radio" id="paymentMethod3" name="payment" />
+                                        <img src="~/images/card.png" />
+                                        <p>Thanh toán bằng thẻ quốc tế Visa, Master, JCB, AMEX</p>
+                                    </div>
+                                    <div class="method">
+                                        <input type="radio" id="paymentMethod4" name="payment" />
+                                        <img src="~/images/zalopay.png" />
+                                        <p>Thanh toán bằng ví ZaloPay</p>
+                                    </div>
+                                    <div class="method">
+                                        <input type="radio" id="paymentMethod5" name="payment" />
+                                        <img src="~/images/card.png" />
+                                        <p>Thanh toán qua Kredivo</p>
+                                    </div>
+                                    <div class="method">
+                                        <input type="radio" id="paymentMethod6" name="payment" />
+                                        <img src="~/images/card.png" />
+                                        <p>Trả góp qua nhà tài chính</p>
+                                    </div>
+                                    <div class="method">
+                                        <input type="radio" id="paymentMethod7" name="payment" />
+                                        <img src="~/images/card.png" />
+                                        <p>Trả góp qua thẻ tín dụng</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pay">
+            <div class="container">
+                <div class="pay-content">
+                    <div class="pay-content-policy">
+                        <input type="checkbox" checked />
+                        <p>Tôi đồng ý với <span>Điều khoản dịch vụ</span>, <span>Chính sách thu thập và xử lý dữ liệu cá nhân</span> của FPT Shop.</p>
+                    </div>
+                    <div class="pay-content-body">
+                        <div class="pay-content-body-left">
+                            <div class="pay-content-body-left-1">
+                                <p>Tổng tiền:</p>
+                                <p>@String.Format("{0:N0}", @ViewBag.TotalPrice)</p>
+                            </div>
+                            <div class="pay-content-body-left-1">
+                                <p>Giảm giá khuyến mãi:</p>
+                                <p>-800.000đ</p>
+                            </div>
+                            <div class="pay-content-body-left-1">
+                                <p>Giảm giá voucher:</p>
+                                <p>0đ</p>
+                            </div>
+                        </div>
+                        <div class="pay-content-body-right">
+                            <div class="pay-content-body-right-1">
+                                <p>Cần thanh toán (@ViewBag.TotalNumber sản phẩm)</p>
+                                <p class="lasted-price">@String.Format("{0:N0}", @ViewBag.TotalPrice)<span style="text-decoration:underline">đ</span></p>
+                            </div>
+                            <button>Hoàn tất đặt hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/ShopCartJS.js"></script>
+</body>

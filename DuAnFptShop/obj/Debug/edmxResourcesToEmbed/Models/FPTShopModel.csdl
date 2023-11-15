@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FPTSHOPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CameraFeature">
+    <Key>
+      <PropertyRef Name="CameraFeatureID" />
+    </Key>
+    <Property Name="CameraFeatureID" Type="Int32" Nullable="false" />
+    <Property Name="Feature" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="Self.ProductCamera" FromRole="CameraFeature" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CateID" />
+    </Key>
+    <Property Name="CateID" Type="Int32" Nullable="false" />
+    <Property Name="CateName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CategoriesSliders" Relationship="Self.FK__Categorie__CateI__5CD6CB2B" FromRole="Categories" ToRole="CategoriesSlider" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Product__CateID__59FA5E80" FromRole="Categories" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="CategoriesSlider">
+    <Key>
+      <PropertyRef Name="CategoriesSliderID" />
+    </Key>
+    <Property Name="CategoriesSliderID" Type="Int32" Nullable="false" />
+    <Property Name="CateSliderImage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="CateID" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__Categorie__CateI__5CD6CB2B" FromRole="CategoriesSlider" ToRole="Categories" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="ColorID" />
+    </Key>
+    <Property Name="ColorID" Type="Int32" Nullable="false" />
+    <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProductDetails" Relationship="Self.FK__ProductDe__Color__5EBF139D" FromRole="Color" ToRole="ProductDetail" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CusID" />
+    </Key>
+    <Property Name="CusID" Type="Int32" Nullable="false" />
+    <Property Name="CusName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CusPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="CusGender" Type="Boolean" />
+    <Property Name="CusEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CusPassword" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__CusID__6754599E" FromRole="Customer" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="OrderItemID" />
+    </Key>
+    <Property Name="OrderItemID" Type="Int32" Nullable="false" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Order" Relationship="Self.FK__OrderItem__Order__693CA210" FromRole="OrderItems" ToRole="Orders" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__OrderItem__Produ__6A30C649" FromRole="OrderItems" ToRole="Product" />
+    <Property Name="ProductDetailID" Type="Int32" />
+    <NavigationProperty Name="ProductDetail" Relationship="FPTSHOPModel.FK_OrderItems_ProductDetail" FromRole="OrderItem" ToRole="ProductDetail" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="CusID" Type="Int32" />
+    <Property Name="OrderDate" Type="DateTime" Precision="3" />
+    <Property Name="AddressDelivery" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentMethodID" Type="Int32" />
+    <Property Name="OrderStatus" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiverName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiverPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="LastPrice" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Orders__CusID__6754599E" FromRole="Orders" ToRole="Customer" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK__OrderItem__Order__693CA210" FromRole="Orders" ToRole="OrderItems" />
+    <NavigationProperty Name="PaymentMethod" Relationship="Self.FK__Orders__PaymentM__68487DD7" FromRole="Orders" ToRole="PaymentMethods" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="PaymentMethodID" />
+    </Key>
+    <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
+    <Property Name="PaymentMethodName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentMethodImage" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__PaymentM__68487DD7" FromRole="PaymentMethods" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="PerformanceBattery">
+    <Key>
+      <PropertyRef Name="PerformanceBatteryID" />
+    </Key>
+    <Property Name="PerformanceBatteryID" Type="Int32" Nullable="false" />
+    <Property Name="Performance" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Product__Perform__5AEE82B9" FromRole="PerformanceBattery" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="CateID" Type="Int32" />
+    <Property Name="ProName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ProDecription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Screen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Camera" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CameraSelfie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Cpu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Battery" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Sim" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OperatingSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Origin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LaunchTime" Type="Int32" />
+    <Property Name="PerformanceBatteryID" Type="Int32" />
+    <Property Name="ScreenSizeID" Type="Int32" />
+    <Property Name="ProImage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ProDescriptionTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__Product__CateID__59FA5E80" FromRole="Product" ToRole="Categories" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK__OrderItem__Produ__6A30C649" FromRole="Product" ToRole="OrderItems" />
+    <NavigationProperty Name="PerformanceBattery" Relationship="Self.FK__Product__Perform__5AEE82B9" FromRole="Product" ToRole="PerformanceBattery" />
+    <NavigationProperty Name="ScreenSize" Relationship="Self.FK__Product__ScreenS__5BE2A6F2" FromRole="Product" ToRole="ScreenSize" />
+    <NavigationProperty Name="ProductDetails" Relationship="Self.FK__ProductDe__Produ__5DCAEF64" FromRole="Product" ToRole="ProductDetail" />
+    <NavigationProperty Name="ProductNews" Relationship="Self.FK__ProductNe__Produ__6477ECF3" FromRole="Product" ToRole="ProductNews" />
+    <NavigationProperty Name="ProductQuestions" Relationship="Self.FK__ProductQu__Produ__6383C8BA" FromRole="Product" ToRole="ProductQuestion" />
+    <NavigationProperty Name="ProductSliders" Relationship="Self.FK__ProductSl__Produ__656C112C" FromRole="Product" ToRole="ProductSlider" />
+    <NavigationProperty Name="CameraFeatures" Relationship="Self.ProductCamera" FromRole="Product" ToRole="CameraFeature" />
+  </EntityType>
+  <EntityType Name="ProductDetail">
+    <Key>
+      <PropertyRef Name="ProductDetailID" />
+    </Key>
+    <Property Name="ProductDetailID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="ColorID" Type="Int32" />
+    <Property Name="NewPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OldPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="RamID" Type="Int32" />
+    <Property Name="StorageID" Type="Int32" />
+    <NavigationProperty Name="Color" Relationship="Self.FK__ProductDe__Color__5EBF139D" FromRole="ProductDetail" ToRole="Color" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__ProductDe__Produ__5DCAEF64" FromRole="ProductDetail" ToRole="Product" />
+    <NavigationProperty Name="Ram" Relationship="Self.FK__ProductDe__RamID__5FB337D6" FromRole="ProductDetail" ToRole="Ram" />
+    <NavigationProperty Name="Storage" Relationship="Self.FK__ProductDe__Stora__60A75C0F" FromRole="ProductDetail" ToRole="Storage" />
+    <NavigationProperty Name="ProductDiscounts" Relationship="Self.FK__ProductDi__Produ__66603565" FromRole="ProductDetail" ToRole="ProductDiscounts" />
+    <NavigationProperty Name="OrderItems" Relationship="FPTSHOPModel.FK_OrderItems_ProductDetail" FromRole="ProductDetail" ToRole="OrderItem" />
+  </EntityType>
+  <EntityType Name="ProductDiscount">
+    <Key>
+      <PropertyRef Name="DiscountID" />
+    </Key>
+    <Property Name="DiscountID" Type="Int32" Nullable="false" />
+    <Property Name="ProductDetailID" Type="Int32" />
+    <Property Name="DiscountType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DiscountValue" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DiscountDecription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ProductDetail" Relationship="Self.FK__ProductDi__Produ__66603565" FromRole="ProductDiscounts" ToRole="ProductDetail" />
+  </EntityType>
+  <EntityType Name="ProductNew">
+    <Key>
+      <PropertyRef Name="ProductNewsID" />
+    </Key>
+    <Property Name="ProductNewsID" Type="Int32" Nullable="false" />
+    <Property Name="NewsTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NewsContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewsImage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="NewsTags" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProductID" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__ProductNe__Produ__6477ECF3" FromRole="ProductNews" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ProductQuestion">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="QuestionID" Type="Int32" Nullable="false" />
+    <Property Name="QuestionTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Answer" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ProductID" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__ProductQu__Produ__6383C8BA" FromRole="ProductQuestion" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ProductSlider">
+    <Key>
+      <PropertyRef Name="ProductSliderID" />
+    </Key>
+    <Property Name="ProductSliderID" Type="Int32" Nullable="false" />
+    <Property Name="ProductSliderImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ProductID" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__ProductSl__Produ__656C112C" FromRole="ProductSlider" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Ram">
+    <Key>
+      <PropertyRef Name="RamID" />
+    </Key>
+    <Property Name="RamID" Type="Int32" Nullable="false" />
+    <Property Name="RamName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ProductDetails" Relationship="Self.FK__ProductDe__RamID__5FB337D6" FromRole="Ram" ToRole="ProductDetail" />
+  </EntityType>
+  <EntityType Name="ScreenSize">
+    <Key>
+      <PropertyRef Name="ScreenSizeID" />
+    </Key>
+    <Property Name="ScreenSizeID" Type="Int32" Nullable="false" />
+    <Property Name="Size" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Product__ScreenS__5BE2A6F2" FromRole="ScreenSize" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Storage">
+    <Key>
+      <PropertyRef Name="StorageID" />
+    </Key>
+    <Property Name="StorageID" Type="Int32" Nullable="false" />
+    <Property Name="StorageName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ProductDetails" Relationship="Self.FK__ProductDe__Stora__60A75C0F" FromRole="Storage" ToRole="ProductDetail" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Categorie__CateI__5CD6CB2B">
+    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="CategoriesSlider" Type="Self.CategoriesSlider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CateID" />
+      </Principal>
+      <Dependent Role="CategoriesSlider">
+        <PropertyRef Name="CateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__CateID__59FA5E80">
+    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CateID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductDe__Color__5EBF139D">
+    <End Role="Color" Type="Self.Color" Multiplicity="0..1" />
+    <End Role="ProductDetail" Type="Self.ProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="ColorID" />
+      </Principal>
+      <Dependent Role="ProductDetail">
+        <PropertyRef Name="ColorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__CusID__6754599E">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CusID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderItem__Order__693CA210">
+    <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderItem__Produ__6A30C649">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__PaymentM__68487DD7">
+    <End Role="PaymentMethods" Type="Self.PaymentMethod" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethods">
+        <PropertyRef Name="PaymentMethodID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="PaymentMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Perform__5AEE82B9">
+    <End Role="PerformanceBattery" Type="Self.PerformanceBattery" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PerformanceBattery">
+        <PropertyRef Name="PerformanceBatteryID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="PerformanceBatteryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__ScreenS__5BE2A6F2">
+    <End Role="ScreenSize" Type="Self.ScreenSize" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScreenSize">
+        <PropertyRef Name="ScreenSizeID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ScreenSizeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductDe__Produ__5DCAEF64">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductDetail" Type="Self.ProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductNe__Produ__6477ECF3">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductNews" Type="Self.ProductNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductNews">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductQu__Produ__6383C8BA">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductQuestion" Type="Self.ProductQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductQuestion">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductSl__Produ__656C112C">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductSlider" Type="Self.ProductSlider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductSlider">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductDe__RamID__5FB337D6">
+    <End Role="Ram" Type="Self.Ram" Multiplicity="0..1" />
+    <End Role="ProductDetail" Type="Self.ProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ram">
+        <PropertyRef Name="RamID" />
+      </Principal>
+      <Dependent Role="ProductDetail">
+        <PropertyRef Name="RamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductDe__Stora__60A75C0F">
+    <End Role="Storage" Type="Self.Storage" Multiplicity="0..1" />
+    <End Role="ProductDetail" Type="Self.ProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Storage">
+        <PropertyRef Name="StorageID" />
+      </Principal>
+      <Dependent Role="ProductDetail">
+        <PropertyRef Name="StorageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductDi__Produ__66603565">
+    <End Role="ProductDetail" Type="Self.ProductDetail" Multiplicity="0..1" />
+    <End Role="ProductDiscounts" Type="Self.ProductDiscount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductDetail">
+        <PropertyRef Name="ProductDetailID" />
+      </Principal>
+      <Dependent Role="ProductDiscounts">
+        <PropertyRef Name="ProductDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductCamera">
+    <End Role="CameraFeature" Type="Self.CameraFeature" Multiplicity="*" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="FPTSHOPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CameraFeatures" EntityType="Self.CameraFeature" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="CategoriesSliders" EntityType="Self.CategoriesSlider" />
+    <EntitySet Name="Colors" EntityType="Self.Color" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="PaymentMethods" EntityType="Self.PaymentMethod" />
+    <EntitySet Name="PerformanceBatteries" EntityType="Self.PerformanceBattery" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="ProductDetails" EntityType="Self.ProductDetail" />
+    <EntitySet Name="ProductDiscounts" EntityType="Self.ProductDiscount" />
+    <EntitySet Name="ProductNews" EntityType="Self.ProductNew" />
+    <EntitySet Name="ProductQuestions" EntityType="Self.ProductQuestion" />
+    <EntitySet Name="ProductSliders" EntityType="Self.ProductSlider" />
+    <EntitySet Name="Rams" EntityType="Self.Ram" />
+    <EntitySet Name="ScreenSizes" EntityType="Self.ScreenSize" />
+    <EntitySet Name="Storages" EntityType="Self.Storage" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__Categorie__CateI__5CD6CB2B" Association="Self.FK__Categorie__CateI__5CD6CB2B">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="CategoriesSlider" EntitySet="CategoriesSliders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__CateID__59FA5E80" Association="Self.FK__Product__CateID__59FA5E80">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductDe__Color__5EBF139D" Association="Self.FK__ProductDe__Color__5EBF139D">
+      <End Role="Color" EntitySet="Colors" />
+      <End Role="ProductDetail" EntitySet="ProductDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__CusID__6754599E" Association="Self.FK__Orders__CusID__6754599E">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderItem__Order__693CA210" Association="Self.FK__OrderItem__Order__693CA210">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderItem__Produ__6A30C649" Association="Self.FK__OrderItem__Produ__6A30C649">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__PaymentM__68487DD7" Association="Self.FK__Orders__PaymentM__68487DD7">
+      <End Role="PaymentMethods" EntitySet="PaymentMethods" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Perform__5AEE82B9" Association="Self.FK__Product__Perform__5AEE82B9">
+      <End Role="PerformanceBattery" EntitySet="PerformanceBatteries" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__ScreenS__5BE2A6F2" Association="Self.FK__Product__ScreenS__5BE2A6F2">
+      <End Role="ScreenSize" EntitySet="ScreenSizes" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductDe__Produ__5DCAEF64" Association="Self.FK__ProductDe__Produ__5DCAEF64">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductDetail" EntitySet="ProductDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductNe__Produ__6477ECF3" Association="Self.FK__ProductNe__Produ__6477ECF3">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductNews" EntitySet="ProductNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductQu__Produ__6383C8BA" Association="Self.FK__ProductQu__Produ__6383C8BA">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductQuestion" EntitySet="ProductQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductSl__Produ__656C112C" Association="Self.FK__ProductSl__Produ__656C112C">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductSlider" EntitySet="ProductSliders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductDe__RamID__5FB337D6" Association="Self.FK__ProductDe__RamID__5FB337D6">
+      <End Role="Ram" EntitySet="Rams" />
+      <End Role="ProductDetail" EntitySet="ProductDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductDe__Stora__60A75C0F" Association="Self.FK__ProductDe__Stora__60A75C0F">
+      <End Role="Storage" EntitySet="Storages" />
+      <End Role="ProductDetail" EntitySet="ProductDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductDi__Produ__66603565" Association="Self.FK__ProductDi__Produ__66603565">
+      <End Role="ProductDetail" EntitySet="ProductDetails" />
+      <End Role="ProductDiscounts" EntitySet="ProductDiscounts" />
+    </AssociationSet>
+    <AssociationSet Name="ProductCamera" Association="Self.ProductCamera">
+      <End Role="CameraFeature" EntitySet="CameraFeatures" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(FPTSHOPModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(FPTSHOPModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <AssociationSet Name="FK_OrderItems_ProductDetail" Association="FPTSHOPModel.FK_OrderItems_ProductDetail">
+      <End Role="ProductDetail" EntitySet="ProductDetails" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <Association Name="FK_OrderItems_ProductDetail">
+    <End Type="FPTSHOPModel.ProductDetail" Role="ProductDetail" Multiplicity="0..1" />
+    <End Type="FPTSHOPModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductDetail">
+        <PropertyRef Name="ProductDetailID" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="ProductDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

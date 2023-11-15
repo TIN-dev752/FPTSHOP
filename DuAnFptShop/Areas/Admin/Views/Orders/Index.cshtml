@@ -1,0 +1,134 @@
+﻿@model IEnumerable<DuAnFptShop.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .header-content {
+        width: 100%;
+        background-color: #E1EDDB;
+        color: #91A990;
+        height: 50px;
+        padding: 0px 20px;
+        font-weight: bold;
+    }
+
+        .header-content h4 {
+            line-height: 50px;
+        }
+
+    .list-OrderItems {
+        width: 100%;
+        background-color: #ffffff;
+        margin-top: 20px;
+    }
+
+    .btn {
+        border-radius: 5px;
+        border: 1px solid #CFD5DB;
+    }
+
+        .btn a {
+            text-decoration: none;
+            color:white;
+        }
+
+        .btn-detail{
+            width:90px;
+            background-color:darkblue;
+        }
+
+        .btn-detail:hover{
+            background-color:blue;
+        }
+</style>
+
+<div class="header">
+    <div class="container">
+        <div class="header-content">
+            <h4>QUẢN LÝ ĐƠN HÀNG</h4>
+        </div>
+    </div>
+</div>
+<div class="list-OrderItems">
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>
+                    Ngày đặt hàng
+                </th>
+                <th>
+                    Địa chỉ nhận hàng
+                </th>
+                <th>
+                    Trạng thái đơn hàng
+                </th>
+                <th>
+                    Người nhận
+                </th>
+                <th>
+                    SĐT Người nhận
+                </th>
+                <th>
+                    Người đặt
+                </th>
+                <th>
+                    Phương thức thanh toán
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AddressDelivery)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceiverName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceiverPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.CusName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaymentMethod.PaymentMethodName)
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id=item.OrderID }) |*@
+                        <button class="btn btn-detail">@Html.ActionLink("Chi tiết", "Details", new { id = item.OrderID })</button>
+                        @*@Html.ActionLink("Delete", "Delete", new { id=item.OrderID })*@
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+

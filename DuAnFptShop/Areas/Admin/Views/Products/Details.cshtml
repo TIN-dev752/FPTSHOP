@@ -1,0 +1,213 @@
+﻿@model DuAnFptShop.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .form-horizontal {
+        width: 100%;
+        background-color: #ffffff;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .header-content {
+        width: 100%;
+        background-color: #E1EDDB;
+        color: #91A990;
+        height: 50px;
+        padding: 0px 20px;
+        font-weight: bold;
+    }
+
+        .header-content h4 {
+            line-height: 50px;
+        }
+
+    .control-label {
+        width: 100%;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    dt, dd {
+        padding: 5px 20px;
+    }
+
+    dd {
+        border-bottom: 1px solid #9B9D9E;
+    }
+
+    .btn-default {
+        border: 1px solid #CFD5DB;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .btn-default:hover{
+        background-color:powderblue;
+    }
+
+        .btn-default a {
+            text-decoration: none;
+            color: #212529;
+        }
+</style>
+
+
+<div>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <h4>Xem chi tiết sản phẩm</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ProName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProDecription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProDecription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Screen)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Screen)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Camera)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Camera)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CameraSelfie)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CameraSelfie)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cpu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cpu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Battery)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Battery)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sim)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sim)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OperatingSystem)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OperatingSystem)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Origin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Origin)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LaunchTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LaunchTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProImage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProImage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.CateName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.CateName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PerformanceBattery.Performance)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PerformanceBattery.Performance)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ScreenSize.Size)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ScreenSize.Size)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<div class="detail-btn">
+    <div class="container">
+        <div class="detail-btn-content">
+            <button class="btn btn-default"> @Html.ActionLink("Sửa", "Edit", new { id = Model.ProductID }) </button>
+            <button class="btn btn-default"> @Html.ActionLink("Danh sách", "Index")</button>
+        </div>
+    </div>
+</div>

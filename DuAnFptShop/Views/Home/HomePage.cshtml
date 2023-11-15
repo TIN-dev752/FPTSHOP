@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "HomePage";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/HomePageCSS.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <img style="cursor:pointer" src="~/images/promotion-top.jpg" id="promotion-top" />
+    </div>
+    <section class="slider">
+        <div class="container">
+            <div class="slider-content">
+                <div class="slider-content-left">
+                    <div class="slider-content-left-top-container">
+                        <div class="slider-content-left-top">
+                            <a href=""><img src="~/images/promotion-slider1.jpg" /></a>
+                            <a href=""><img src="~/images/promotion-slider2.jpg" /></a>
+                            <a href=""><img src="~/images/promotion-slider3.jpg" /></a>
+                            <a href=""><img src="~/images/promotion-slider4.jpg" /></a>
+                            <a href=""><img src="~/images/promotion-slider5.jpg" /></a>
+                            <a href=""><img src="~/images/promotion-slider6.jpg" /></a>
+                            <a href=""><img src="~/images/promotion-slider7.jpg" /></a>
+                            <a href=""><img src="~/images/promotion-slider8.jpg" /></a>
+                        </div>
+                        <div class="slider-content-left-top-btn">
+                            <i class="fa-solid fa-chevron-left"></i>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="slider-content-left-bottom">
+                        <ul>
+                            <li class="active">Ưu đãi</li>
+                            <li>Galaxy a05</li>
+                            <li>Oppo</li>
+                            <li>Xiaomi 13T</li>
+                            <li>Phụ kiện</li>
+                            <li>Robot Ecovacs</li>
+                            <li>Honor X8a</li>
+                            <li>TV Xiaomi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slider-content-right">
+                    <div class="slider-content-right-top">
+                        <img src="~/images/promotion-slider9.jpg" />
+                        <img src="~/images/promotion-slider10.jpg" />
+                    </div>
+                    <div class="slider-content-right-bottom">
+                        <h3>Tin khuyến mãi</h3>
+                        <div class="slider-news">
+                            <img src="~/images/slider-new1.jpg" />
+                            <p>FPT shop giảm thêm 300k quan VNPAY-QR</p>
+                        </div>
+                        <div class="slider-news">
+                            <img src="~/images/slider-new2.jpg" />
+                            <p>Mua PC và màn hình giảm đến 40%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="menu-body">
+        <div class="container">
+            <table>
+                @*<tr>
+                    <td>
+                        <a href="ProductCategory"><img src="~/images/menu-body1.jpg" /></a>
+                        <p>Điện thoại</p>
+                    </td>
+                    <td>
+                        <a href=""><img src="~/images/menu-body2.jpg" /></a>
+                        <p>Laptop</p>
+                    </td>
+                    <td>
+                        <a href=""><img src="~/images/menu-body3.jpg" /></a>
+                        <p>PC</p>
+                    </td>
+                    <td>
+                        <a href=""><img src="~/images/menu-body4.jpg" /></a>
+                        <p>Máy tính bảng</p>
+                    </td>
+                    <td>
+                        <a href=""><img src="~/images/menu-body5.jpg" /></a>
+                        <p>Thiết bị thông minh</p>
+                    </td>
+                    <td>
+                        <a href=""><img src="~/images/menu-body6.jpg" /></a>
+                        <p>Gia dụng</p>
+                    </td>
+                </tr>*@
+                <tr>
+                    @*<td>
+                        <a href=""><img src="~/images/menu-body7.jpg" /></a>
+                        <p>Apple</p>
+                    </td>*@
+                    <td>
+                        <a href="ProductCategory"><img src="~/images/menu-body8.jpg" /></a>
+                        <p>Samsung</p>
+                    </td>
+                    @*<td>
+                        <a href=""><img src="~/images/menu-body9.jpg" /></a>
+                        <p>Đồng hồ thông minh</p>
+                    </td>
+                    <td>
+                        <a href=""><img src="~/images/menu-body10.jpg" /></a>
+                        <p>Phụ kiện</p>
+                    </td>
+                    <td>
+                        <a href=""><img src="~/images/menu-body11.jpg" /></a>
+                        <p>Màn hình</p>
+                    </td>
+                    <td>
+                        <a href=""><img src="~/images/menu-body12.jpg" /></a>
+                        <p>Máy cũ</p>
+                    </td>*@
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section class="banner-1">
+        <div class="container">
+            <img src="~/images/promotion1.jpg" />
+        </div>
+    </section>
+    <section class="slider-product-one">
+        <div class="container">
+            <div class="slider-product-one-title">
+                <h3>KHUYỄN MÃI HOT</h3>
+            </div>
+            @Html.Action("HotDealListPartialView","Home")
+        </div>
+    </section>
+    <section class="banner-2">
+        <div class="container">
+            <div class="title-banner">
+                <h3>OPPO GIÁ LUÔN RẺ</h3>
+            </div>
+            <img src="~/images/promotion2.jpg" />
+            <ul>
+                <li><img src="~/images/promotion2-1.jpg" /></li>
+                <li><img src="~/images/promotion2-2.jpg" /></li>
+                <li><img src="~/images/promotion2-3.jpg" /></li>
+                <li><img src="~/images/promotion2-4.jpg" /></li>
+            </ul>
+        </div>
+    </section>
+    <section class="banner-3">
+        <div class="container">
+            <img src="~/images/promotion3.jpg" />
+        </div>
+    </section>
+    <section class="slider-product-one">
+        <div class="container">
+            <div class="slider-product-one-title">
+                <h3>ĐIỆN THOẠI NỔI BẬT</h3>
+            </div>
+            @Html.Action("OutstandingListPartialView","Home")
+        </div>
+    </section>
+    <script src="~/Scripts/HomePageJS.js"></script>
+</body>
+

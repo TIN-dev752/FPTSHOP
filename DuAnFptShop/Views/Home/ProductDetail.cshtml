@@ -1,0 +1,578 @@
+﻿@model DuAnFptShop.Models.ViewModel.DetailProduct
+
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_MasterLayout1.cshtml";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/ProductDetailCSS.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <ul>
+                    <li><a href="@Url.Action("HomePage","Home")">Trang chủ</a></li>
+                    <li style="color: #CCCCCC">/</li>
+                    <li><a href="@Url.Action("ProductCategory","Home")">Điện thoại</a></li>
+                    <li style="color: #CCCCCC">/</li>
+                    <li><a href="">Samsung</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="product-top">
+        <div class="container">
+            <div class="product-top-content">
+                <h1>@Html.DisplayFor(model => model.ProName) <span>(No.00842520)</span></h1>
+                @*<div class="product-rating">
+                        <ul>
+                            <li><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></li>
+                            <li><a href="">0 Đánh giá</a></li>
+                            <li><a href="">0 Hỏi & Đáp</a></li>
+                            <li><a href=""><i class="fa-solid fa-circle-plus"></i> So sánh</a></li>
+                        </ul>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-content">
+                <div class="product-detail-left">
+                    @Html.Action("ProductSliderPartialView", "Product")
+                    <div class="product-slider-feature">
+                        <ul>
+                            <li>
+                                <a href=""><i class="fa-regular fa-images"></i></a>
+                                <p>Xem thêm 14 ảnh</p>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa-solid fa-box-open"></i></a>
+                                <p>Trong hộp có gì  </p>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa-solid fa-camera-rotate"></i></a>
+                                <p>Ảnh 360 độ</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product-param">
+                        <ul>
+                            <li><i class="fa-solid fa-mobile-screen"></i><p title="Màn hình">@Model.Screen</p></li>
+                            <li><i class="fa-solid fa-camera"></i><p title="Camera sau">@Html.DisplayFor(model => model.Camera)</p></li>
+                            <li><i class="fa-solid fa-image-portrait"></i><p title="Camera selfie">@Html.DisplayFor(model => model.CameraSelfie)</p></li>
+                            <li><i class="fa-solid fa-microchip"></i><p title="CPU">@Html.DisplayFor(model => model.Cpu)</p></li>
+                            <li><i class="fa-solid fa-ticket"></i><p title="Bộ nhớ trong">@Html.DisplayFor(model => model.StorageName)</p></li>
+                        </ul>
+                        <a class="table-view-detail-btn1">Xem chi tiết thông số kỹ thuật</a>
+                    </div>
+                    <div class="product-policy">
+                        <span><i class="fa-solid fa-recycle"></i></span>
+                        <p>Hàng chính hãng - Bảo hành 12 Tháng</p>
+                        <span><i class="fa-solid fa-truck-fast"></i></span>
+                        <p>Giao hàng toàn quốc</p>
+                    </div>
+                </div>
+                <div class="product-detail-right">
+                    <div class="product-price">
+                        <div class="product-price-left">
+                            <p class="newPrice">@String.Format("{0:N0}", Model.NewPrice)<span>đ</span></p>
+                            <p class="oldPrice">@String.Format("{0:N0}", Model.OldPrice)<span>đ</span></p>
+                        </div>
+                        @*<div class="product-price-right">
+                                <p>Trả góp chỉ từ </p>
+                                <p>711.000₫/tháng</p>
+                            </div>*@
+                    </div>
+                    @*<div class="product-reward-point">
+                            <span><i class="fa-solid fa-f"></i></span>
+                            <p>
+                                +1.222 điểm thưởng dự kiến
+                            </p>
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>*@
+                    <div class="select-color">
+                        <div class="product-color-img">
+                            <img class="active" src="~/images/slider-samsung-a23-1.jpg" />
+                            <i class="fa-solid fa-check"></i>
+                            <p>Xanh</p>
+                        </div>
+                    </div>
+                    <div class="product-discount">
+                        <div class="product-discount-title">
+                            <p>Chọn 1 trong 2 khuyến mãi sau</p>
+                        </div>
+                        <div class="product-discount-content">
+                            <div class="radio-discount">
+                                <ul>
+                                    <li><input type="radio" name="discount-radio" checked /><p>Giảm ngay 800,000đ</p></li>
+                                    <li>
+                                        <input type="radio" name="discount-radio" />
+                                        <p>Tặng máy ép chậm Kalite trị giá 3.000.000đ <span>Xem chi tiết</span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul>
+                                <li><span>Ưu đãi thêm</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i><p>Trả góp 0%</p></li>
+                                <li><i class="fa-solid fa-circle-check"></i><p>Tặng PMH 500,000đ mua Tivi samsung</p></li>
+                                <li><i class="fa-solid fa-circle-check"></i><p>Ưu đãi đặc quyền dành cho Tân Sinh Viên: Giảm thêm 5% | Học sinh Sinh viên | Giáo Viên: Giảm thêm 3% <span>Xem chi tiết</span></p></li>
+                            </ul>
+                            <span class="expand-btn1">Xem thêm 3 ưu đãi khác<i class="fa-solid fa-chevron-down"></i></span>
+                            <div class="product-discount-content-expand">
+                                <ul>
+                                    <li><i class="fa-solid fa-circle-check"></i><p>Đặc quyền trả góp 0% trả trước 0đ tại hệ thống S.Studio by FPT <span>Xem chi tiết</span></p></li>
+                                    <li><i class="fa-solid fa-circle-check"></i><p>Mua Sim MobiFone Chất Chơi 1T kèm máy điện thoại giảm ngay 100.000đ, có ngay 5GB data/ ngày</p></li>
+                                    <li><i class="fa-solid fa-circle-check"></i><p>Thu cũ đổi mới trợ giá ngay 15% đến 2 triệu (MintPro) <span>Xem chi tiết</span></p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="payment-discount">
+                            <div class="payment-discount-content">
+                                <div class="payment-discount-img">
+                                    <img src="~/images/product-detail-zalo-pay.jpg" />
+                                    <input type="checkbox" />
+                                </div>
+                                <div class="payment-discount-text">
+                                    <h3>Ví ZaloPay</h3>
+                                    <p>Nhập mã FPTSHOP200 giảm 1% tối đa 200.000 đồng khi thanh toán 100% qua ZaloPay <span>Xem chi tiết</span></p>
+                                </div>
+                            </div>
+                            <div class="payment-discount-content">
+                                <div class="payment-discount-img">
+                                    <img src="~/images/product-detail-redivo-pay.jpg" />
+                                    <input type="checkbox" />
+                                </div>
+                                <div class="payment-discount-text">
+                                    <h3>Thanh toán qua Kredivo</h3>
+                                    <p>Giảm ngay 5% tối đa 200.000 đồng khi thanh toán trả góp 6/12 tháng qua Kredivo <span>Xem chi tiết</span></p>
+                                </div>
+                            </div>
+                        </div>*@
+                <div class="click-to-buy">
+                    <a class="btn btn-primary" href="@Url.Action("AddToCart", "Home", new { id = Model.ProductID })">
+                        ĐẶT MUA
+                    </a>
+                    <button><span>TRẢ GÓP 0%</span><br /> Duyệt nhanh qua điện thoại</button>
+                    <button><span>TRẢ GÓP QUA THẺ</span><br /> Visa,Master Card, JCB, AMEX</button>
+                </div>
+                    <div class="located">
+                        <p>Gọi <span>1800-6601</span> để được tư vấn mua hàng (Miễn phí)</p>
+                        <span><i class="fa-solid fa-location-dot"></i> Tìm shop có hàng gần nhất</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="paramNews">
+        <div class="container">
+            <div class="paramNews-content">
+                <div class="paramNews-content-left">
+                    <h3>Đặc điểm nổi bật của @Html.DisplayFor(model => model.ProName)</h3>
+                    @Html.Action("ProductParamSliderPartialView","Product")
+                    <h3>@Html.DisplayFor(model => model.ProDescriptionTitle)</h3>
+                    <p>Chiến thần smartphone tầm trung gọi tên @Html.DisplayFor(model => model.ProName) với những tính năng đột phá từ màn hình 120Hz mượt mà, 4 camera 50MP cho đến hiệu năng “khủng” Snapdragon 695, sẵn sàng cùng bạn khai mở tiềm lực công nghệ tối ưu để tận hưởng cuộc sống tiện lợi và thông minh.</p><br />
+                    <img src="~/images/paramNews-A23-1.jpg" />
+                    <div class="expand-button">
+                        <button class="expand-btn2">Đọc thêm <i class="fa-solid fa-angle-down"></i></button>
+                    </div>
+                    <div class="expand-content">
+                        <h3>Tốc độ với kết nối 5G</h3><br />
+                        <p>Mở ra kỉ nguyên Internet tốc độ, @Html.DisplayFor(model => model.ProName) tích hợp sẵn công nghệ kết nối nhanh nhất hiện nay. @Html.DisplayFor(model => model.ProName) là một trong những đại diện hiếm hoi trong phân khúc sở hữu 5G. Tốc độ 5G sẽ giúp bạn làm chủ cuộc chơi dễ dàng. Mọi tương tác, kết nối trực tuyến đều diễn ra trong chớp mắt. Bạn sẽ trải nghiệm được sự khác biệt từ những điều nhỏ nhất, tải dữ liệu, chia sẻ hay phát trực tuyến Youtube, xem phim, chiến game cực đã với độ phản hồi gần như tuyệt đối.</p><br />
+                        <img src="~/images/paramNews-A23-3.jpg" />
+                        <h3>Chiến thần hiệu năng đích thực</h3><br />
+                        <p>Không chỉ có kết nối trực tuyến nhanh, mà <span><a href="ProductCategory">điện thoại</a></span> còn mượt mà với Snapdragon 695. Một bộ vi xử lý siêu mạnh trong phân khúc cho khả năng xử lý vượt trội. Snapdragon 695 cũng được tối ưu khá đầy đủ cho các tựa game hot nhất hiện nay, đảm bảo trải nghiệm những tùy chỉnh “xịn sò”, mang tới không gian gaming hoàn hảo. Sự đồng hành cùng 4GB RAM và 128GB ROM còn cho bạn lưu trữ thoải mái. Đồng thời, bạn có thể mở rộng thêm ROM đến 1TB thông qua thẻ microSD.</p><br />
+                        <img src="~/images/paramNews-A23-2.jpg" />
+                        <h3>Màn hình chưa bao giờ mượt đến thế</h3><br />
+                        <p>Mở ra loạt công nghệ tiên tiến, @Html.DisplayFor(model => model.ProName) trở thành đại diện hoàn hảo trong phân khúc với màn hình chưa bao giờ gặp gỡ. <span>Samsung</span> đã trang bị màn hình 120Hz siêu mượt mà. Các thao tác chuyển cảnh hay gaming đều diễn ra nhanh chóng. Sự đầu tư cẩn thận này cho bạn trải nghiệm thật sự khác so với những sản phẩm trước đây. Chi tiết cũng được bảo đảm với hình ảnh chân thực, sống động, giúp bạn tận hưởng trọn vẹn thế giới đa sắc màu cùng độ phân giải FHD+ trên màn hình tràn viền Infinity-V 6.6 inch.</p><br />
+                        <img src="~/images/paramNews-A23-4.jpg" />
+                        <h3>Đẹp mọi góc với bộ 4 camera đột phá</h3><br />
+                        <p>Đột phá và tuyệt đỉnh hơn với bộ 4 camera chất lượng. Ảnh được chụp bởi @Html.DisplayFor(model => model.ProName) sẽ giúp bạn hài lòng hoàn toàn với camera chính 50MP, có hỗ trợ chống rung OIS. Khả năng lấy nét nhanh, chuẩn xác, độ phân giải cao cho chất lượng cực tốt, đảm bảo các chi tiết sắc nét, sống động, dù chủ thể đang đứng yên hay di chuyển. Tự tin "pose" mọi dáng yêu thích vì chống rung OIS và cảm biến 50MP sẽ “cân” tất cả khung hình của bạn.</p><br />
+                        <p>Các camera còn lại cũng tối ưu để bạn thỏa sức sáng tạo cùng camera góc rộng 5MP, camera xóa phông 2MP hay chụp ảnh nghệ thuật cùng camera macro 2MP.</p><br />
+                        <img src="~/images/paramNews-A23-5.jpg" />
+                        <h3>Chống rung OIS - Quay video chuyên nghiệp trong tầm tay</h3><br />
+                        <p>Chống rung OIS không chỉ có sức mạnh với hình ảnh, mà với video, đây cũng là trợ lý đắc lực. Tính năng cho phép cố định khung hình chắc chắn, để mọi chuyển động trong video đều được giữ vững, các chi tiết không bị nhòe hay rung lắc quá mức. Từ đó, các thước phim được sản xuất bởi Samsung A23 5G sẽ mượt mà và chuyên nghiệp. Đối với những bạn nào thích quay TikTok hay vlog, Galaxy A23 5G sẽ là người bạn đồng hành lý tưởng, sẵn sàng sáng tạo mọi nội dung và tạo ra xu hướng dễ dàng.</p><br />
+                        <img src="~/images/paramNews-A23-6.jpg" />
+                        <h3>Bao quát toàn cảnh với camera góc rộng</h3><br />
+                        <p>Mọi thứ bạn nhìn thấy đều có thể ghi lại một cách trọn vẹn, đầy đủ chi tiết với camera góc rộng 5MP, góc chụp đến 123 độ. Bạn sẽ không bỏ lỡ chi tiết nào ra khỏi khung hình. Camera phù hợp khi chụp nhóm đông người cùng bạn bè, người thân hoặc ghi lại thiên nhiên hùng vĩ hay kiến trúc đồ sộ trong những chuyến du lịch.</p><br />
+                        <img src="~/images/paramNews-A23-7.jpg" />
+                        <h3>Ảnh chân dung nổi bật</h3><br />
+                        <p>Bất cứ khi nào muốn nổi bật hơn, bạn hãy tận dụng camera xóa phông 2MP, cho phép điều chỉnh độ sâu trường ảnh trong mỗi lần bấm máy. Hãy thử @Html.DisplayFor(model => model.ProName) tùy chỉnh hậu cảnh phù hợp để chủ thể tỏa sáng theo ý muốn. Bạn có thể chỉnh các hiệu ứng ánh nền phía sau là những ngôi sao hay bông tuyết, ảnh chân dung sẽ tương tự máy ảnh chuyên nghiệp.</p><br />
+                        <img src="~/images/paramNews-A23-8.jpg" />
+                        <h3>Tự tin trong mọi khung hình selfie</h3><br />
+                        <p>Camera trước 8MP của @Html.DisplayFor(model => model.ProName)sẽ giúp bạn tỏa sáng ở mọi khung hình selfie. Tối ưu làm đẹp AI, tự động điều chỉnh làn da, màu sắc phù hợp, để bạn rạng rỡ nhưng không phá đi nét nguyên thủy. Thêm độc đáo và thú vị khi Galaxy A23 5G có các hiệu ứng bokeh lung linh, để ảnh ấn tượng và chuyên nghiệp. Bạn sẽ cảm thấy thích selfie hơn trên @Html.DisplayFor(model => model.ProName) với trọn bộ công nghệ ảnh từ Samsung.</p><br />
+                        <img src="~/images/paramNews-A23-9.jpg" />
+                        <h3>Sắc màu cá tính, phù hợp Gen Z năng động</h3><br />
+                        <p>Ghi dấu với bản sắc độc nhất của dòng <span>Samsung Galaxy A</span>, điện thoại có thiết kế liền mạch, cụm camera viền mỏng, tạo nên diện mạo không thể chối từ. Phần thân máy còn được trau chuốt tỉ mỉ cho từng chi tiết, để máy đạt độ hoàn thiện cao. Đồng thời, Samsung Galaxy A23 5G còn có hai phiên bản sắc màu đậm chất Gen Z năng động và hiện đại, bao gồm: Xanh Năng Động và Đen Cá Tính để bạn có thể thỏa sức thể hiện cá tính bản thân.</p><br />
+                        <img src="~/images/paramNews-A23-10.jpg" />
+                        <h3>Pin dùng thoải mái 2 ngày</h3><br />
+                        <p>Cỗ máy @Html.DisplayFor(model => model.ProName) được hoạt động bền bỉ đến 2 ngày trong một lần sạc. Mang đến người dùng thời lượng pin lý tưởng để bạn trải nghiệm liền mạch, sử dụng thoải mái mọi tác vụ dành cho liên lạc, học tập hay giải trí. Một lợi thế để người dùng có cuộc sống năng động, tiện lợi. Chỉ cần sạc vào tối hôm trước, smartphone sẽ đồng hành cùng bạn cả ngày dài.</p><br />
+                        <img src="~/images/paramNews-A23-11.jpg" />
+                        <h3>Sự hỗ trợ từ Game Booster, sẵn sàng cân team</h3><br />
+                        <p>Song hành cùng hiệu năng mạnh, màn hình 120Hz mượt mà, @Html.DisplayFor(model => model.ProName) còn có sự xuất hiện của chế độ Game Booster. Tính năng cho phép bạn có trải nghiệm giao diện game chuyên biệt, điều hướng thân thiện. Đặc biệt nhất là khả năng tối ưu nhiệt lẫn pin, vừa đảm bảo trải nghiệm game liền mạch, không độ trễ, không gian game riêng tư, mà còn tiết kiệm pin lẫn thoải mái trong toàn bộ quá trình “chiến” game, sẵn sàng “cân” team dài lâu cùng đồng đội.</p><br />
+                        <img src="~/images/paramNews-A23-12.jpg" />
+                        <h3>Âm thanh Dolby Atmos – giải trí sống động</h3>
+                        <p>Phần âm thanh của @Html.DisplayFor(model => model.ProName) được nâng tầm khi bạn cắm tai nghe vào và tận hưởng chất âm từ công nghệ Dolby Atmos. Đây là công nghệ tái tạo âm thanh vòm, giúp bạn thưởng thức âm nhạc đa chiều 360 độ, cho mọi nội dung như diễn ra xung quanh.</p><br />
+                        <img src="~/images/paramNews-A23-13.jpg" />
+                        <h3>Bảo mật vân tay an toàn</h3><br />
+                        <p><span>@Html.DisplayFor(model => model.ProName)</span> đảm bảo an toàn khi tích hợp cảm biến vân tay ngay nút nguồn. Thiết kế này cho phép smartphone đạt tính thẩm mỹ cao lẫn sự tiện lợi tối ưu cho người dùng. Chỉ cần bạn chạm vào nút nguồn, smartphone đã sẵn sàng cùng bạn để mở ra cả thế giới giải trí bất tận hay liên lạc, kết nối với mọi người.</p><br />
+                        <img src="~/images/paramNews-A23-14.jpg" />
+                    </div>
+                </div>
+                <div class="paramNews-content-right">
+                    <div class="paramNews-content-right-top">
+                        <h3>Thông số kỹ thuật</h3>
+                        <table>
+                            <tr>
+                                <td>Màn hình</td>
+                                <td>@Html.DisplayFor(model => model.Screen)</td>
+                            </tr>
+                            <tr>
+                                <td>Camera sau</td>
+                                <td>@Html.DisplayFor(model => model.Camera)</td>
+                            </tr>
+                            <tr>
+                                <td>Camera Selfie</td>
+                                <td>@Html.DisplayFor(model => model.CameraSelfie)</td>
+                            </tr>
+                            <tr>
+                                <td>RAM</td>
+                                <td>@Html.DisplayFor(model => model.RamName)</td>
+                            </tr>
+                            <tr>
+                                <td>Bộ nhớ trong</td>
+                                <td>@Html.DisplayFor(model => model.StorageName) GB</td>
+                            </tr>
+                            <tr>
+                                <td>CPU</td>
+                                <td>@Html.DisplayFor(model => model.Cpu)</td>
+                            </tr>
+                            <tr>
+                                <td>Dung lượng pin</td>
+                                <td>@Html.DisplayFor(model => model.Battery)</td>
+                            </tr>
+                            <tr>
+                                <td>Thẻ sim</td>
+                                <td>@Html.DisplayFor(model => model.Sim)</td>
+                            </tr>
+                            <tr>
+                                <td>Hệ điều hành</td>
+                                <td>@Html.DisplayFor(model => model.OperatingSystem)</td>
+                            </tr>
+                            <tr>
+                                <td>Xuất xứ</td>
+                                <td>@Html.DisplayFor(model => model.Origin)</td>
+                            </tr>
+                            <tr>
+                                <td>Thời gian ra mắt</td>
+                                <td>@Html.DisplayFor(model => model.LaunchTime)</td>
+                            </tr>
+                        </table>
+                        <div class="table-view-detail-btn2">
+                            <a>Xem cấu hình chi tiết <i class="fa-solid fa-caret-right"></i></a>
+                        </div>
+                        <div class="table-view-detail">
+                            <div class="table-view-detail-content-wrapper">
+                                <div class="table-view-detail-content">
+                                    <h2>Chi tiết thông số kỹ thuật @Html.DisplayFor(model => model.ProName)<span id="table-view-detail-closed">X</span></h2>
+                                    <img src="@Url.Content(Model.ProImage)" />
+                                    <h3 class="table-view-detail-title">Thông tin hàng hóa</h3>
+                                    <div class="table-view-detail-list">
+                                        <ul>
+                                            <li>Thương hiệu: Samsung</li>
+                                            <li>Xuất xứ: @Html.DisplayFor(model => model.Origin)</li>
+                                            <li>Thời điểm ra mắt: @Html.DisplayFor(model => model.LaunchTime)</li>
+                                            <li>Thời gian bảo hành (tháng): 12</li>
+                                            <li>Hướng dẫn bảo quản: Để nơi khô ráo, nhẹ tay, dễ vỡ</li>
+                                            <li>Hướng dẫn sử dụng: Xem trong sách hướng dẫn sử dụng</li>
+                                            <li>Đơn vị nhập khẩu: Samsung</li>
+                                            <li>Nhà sản xuất: Samsung</li>
+                                            <li>Nhà phân phối: Samsung Việt Nam</li>
+                                        </ul>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Thiết kế & Trọng lượng</h3>
+                                    <div class="table-view-detail-table">
+                                        <table>
+                                            <tr>
+                                                <td>Kích thước</td>
+                                                <td>164.5 x 76.9 x 8.4 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Trọng lượng sản phẩm</td>
+                                                <td>197 g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tỷ lệ diện tích sử dụng màn hình</td>
+                                                <td>83%</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Bộ xử lý</h3>
+                                    <div class="table-view-detail-table">
+                                        <table>
+                                            <tr>
+                                                <td>Phiên bản CPU</td>
+                                                <td>@Html.DisplayFor(model => model.Cpu)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Số nhân</td>
+                                                <td>8</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tốc độ tối đa</td>
+                                                <td><a class="a-black">2.40 GHz</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="table-view-detail-table">
+                                        <h3 class="table-view-detail-title">RAM</h3>
+                                        <table>
+                                            <tr>
+                                                <td>RAM</td>
+                                                <td>@Html.DisplayFor(model => model.RamName)</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Màn hình</h3>
+                                    <div class="table-view-detail-table">
+                                        <table>
+                                            <tr>
+                                                <td>Kích thước màn hình</td>
+                                                <td>6.6 inch</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Loại cảm ứng</td>
+                                                <td><a class="a-black">Điện dung đa điểm</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mật độ điểm ảnh</td>
+                                                <td><a class="a-black">400 ppi</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tỷ lệ khung hình</td>
+                                                <td><a class="a-black">20:9</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Công nghệ màn hình</td>
+                                                <td>PLS LCD</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chuẩn màn hình</td>
+                                                <td><a class="a-blue">FHD+</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Độ phân giải</td>
+                                                <td><a class="a-blue">1080 x 2408 Pixels</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tần số quét</td>
+                                                <td><a class="a-blue">120 Hz</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Lưu trữ</h3>
+                                    <div class="table-view-detail-table">
+                                        <table>
+                                            <tr>
+                                                <td>Bộ nhớ trong</td>
+                                                <td>@Html.DisplayFor(model => model.StorageName)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Thẻ nhớ ngoài</td>
+                                                <td>MicroSD</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Hỗ trợ thẻ nhớ tối đa</td>
+                                                <td><a class="a-black">1 TB</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Camera sau</h3>
+                                    <div class="table-view-detail-wrapper">
+                                        <p>Quad rear camera</p>
+                                        <table>
+                                            <tr>
+                                                <td colspan="2">Wide</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Resolution</td>
+                                                <td><a class="a-black">50.0 MP</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Aperture</td>
+                                                <td>ƒ/1.8</td>
+                                            </tr>
+                                        </table>
+                                        <table>
+                                            <tr>
+                                                <td colspan="2">Ultra Wide</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Resolution</td>
+                                                <td><a class="a-black">5.0 MP</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Aperture</td>
+                                                <td>ƒ/2.2</td>
+                                            </tr>
+                                        </table>
+                                        <table>
+                                            <tr>
+                                                <td colspan="2">Macro lens</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Resolution</td>
+                                                <td><a class="a-black">	2.0 MP</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Aperture</td>
+                                                <td>ƒ/2.4</td>
+                                            </tr>
+                                        </table>
+                                        <table>
+                                            <tr>
+                                                <td colspan="2">Portrait</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Resolution</td>
+                                                <td><a class="a-black">2.0 MP</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Aperture</td>
+                                                <td>ƒ/2.4</td>
+                                            </tr>
+                                        </table>
+                                        <p>Tính năng</p>
+                                        <a class="a-blue">Chống rung quang học (OIS)</a>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Selfie</h3>
+                                    <div class="table-view-detail-table">
+                                        <p>Single selfie camera</p>
+                                        <table>
+                                            <tr>
+                                                <td>Resolution</td>
+                                                <td><a class="a-black">8.0 MP</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Aperture</td>
+                                                <td>ƒ/2.2</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Cảm biến</h3>
+                                    <div class="table-view-detail-list">
+                                        <ul>
+                                            <li><a class="a-blue">Cảm biến vân tay</a></li>
+                                        </ul>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Bảo mật</h3>
+                                    <div class="table-view-detail-list">
+                                        <ul>
+                                            <li>Mở khóa vân tay</li>
+                                            <li>Mật khẩu</li>
+                                        </ul>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Giao tiếp & kết nối</h3>
+                                    <div class="table-view-detail-table">
+                                        <table>
+                                            <tr>
+                                                <td>Số khe SIM</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Loại SIM</td>
+                                                <td><a class="a-blue">@Html.DisplayFor(model => model.Sim)</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Hỗ trợ mạng</td>
+                                                <td><a class="a-blue">5G</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cổng giao tiếp</td>
+                                                <td>Type C</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GPS</td>
+                                                <td><a class="a-blue">GLONASS</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Thông tin pin & Sạc</h3>
+                                    <div class="table-view-detail-table">
+                                        <table>
+                                            <tr>
+                                                <td>Loại PIN</td>
+                                                <td>Lithium polymer</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dung lượng pin</td>
+                                                <td>@Html.DisplayFor(model => model.Battery)</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Hệ điều hành</h3>
+                                    <div class="table-view-detail-table">
+                                        <table>
+                                            <tr>
+                                                <td>OS</td>
+                                                <td>Android</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Version</td>
+                                                <td>@Html.DisplayFor(model => model.OperatingSystem)</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <h3 class="table-view-detail-title">Phụ kiện trong hộp</h3>
+                                    <div class="table-view-detail-table">
+                                        <table>
+                                            <tr>
+                                                <td><i class="fa-solid fa-book"></i> Sách HDSD</td>
+                                                <td><i class="fa-solid fa-plug"></i> Cáp</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fa-solid fa-battery-three-quarters"></i> Adapter</td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paramNews-content-right-bottom">
+                        <h2>Tin tức về @Html.DisplayFor(model => model.ProName)</h2>
+                        <a>Xem tất cả</a>
+                        @Html.Action("ProductNewsPartialView","Product")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="questions">
+        <div class="container">
+           @Html.Action("ProductQuestionPartialView","Product")
+        </div>
+    </section>
+    <section class="advisory">
+        <div class="container">
+            <div class="advisory-content">
+                <div class="advisory-title">
+                    <h2>Hướng dẫn & tư vấn về @Html.DisplayFor(model => model.ProName)</h2>
+                    <a>Xem tất cả</a>
+                </div>
+                @Html.Action("ProductAdvisoryPartialView", "Product")
+            </div>
+        </div>
+    </section>
+    <script defer src="~/Scripts/ProductDetailJS.js"></script>
+</body>
+

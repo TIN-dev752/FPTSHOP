@@ -1,0 +1,96 @@
+﻿@model DuAnFptShop.Models.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .form-horizontal {
+        width: 100%;
+        background-color: #ffffff;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .header-content {
+        width: 100%;
+        background-color: #E1EDDB;
+        color: #91A990;
+        height: 50px;
+        padding: 0px 20px;
+        font-weight: bold;
+    }
+
+        .header-content h4 {
+            line-height: 50px;
+        }
+
+    .control-label {
+        width: 100%;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    dt, dd {
+        padding: 5px 20px;
+    }
+
+    .btn-default {
+        border: 1px solid #CFD5DB;
+        border-radius: 5px;
+    }
+
+        .btn-default a {
+            text-decoration: none;
+            color: #212529;
+        }
+</style>
+
+<div>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <h4>Xóa</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h5 style="color:red">--Bạn có chắc chắn muốn xóa thứ này không?--</h5>
+        <dl class="dl-horizontal">
+            <dt>
+                @*@Html.DisplayNameFor(model => model.CateName)*@
+                Loại hàng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CateName)
+            </dd>
+
+        </dl>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" />
+            <button class="btn btn-default">@Html.ActionLink("Danh sách", "Index")</button>
+        </div>
+    }
+</div>
+

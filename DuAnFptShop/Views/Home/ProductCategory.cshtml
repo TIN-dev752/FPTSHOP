@@ -1,0 +1,402 @@
+﻿@model IEnumerable<DuAnFptShop.Models.ViewModel.HomeViewModel>
+@{
+    ViewBag.Title = "ProductCategory";
+    Layout = "~/Views/Shared/_MasterLayout1.cshtml";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/ProductCategoryCSS.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <ul>
+                    <li><a href="@Url.Action("HomePage","Home")">Trang chủ  </a></li>
+                    <li style="color: #CCCCCC">/</li>
+                    <li><a href="">Điện thoại samsung</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--                                                slider                                      -->
+    <section class="slider">
+        <div class="container">
+            <div class="slider-content">
+                <div class="slider-content-item">
+                    <a href=""><img src="~/images/promotion-slider1.1.jpg" /></a>
+                    <a href=""><img src="~/images/promotion-slider1.2.jpg" /></a>
+                    <a href=""><img src="~/images/promotion-slider1.3.jpg" /></a>
+                    <a href=""><img src="~/images/promotion-slider1.4.jpg" /></a>
+                    <a href=""><img src="~/images/promotion-slider1.5.jpg" /></a>
+                    <a href=""><img src="~/images/promotion-slider1.6.jpg" /></a>
+                    <a href=""><img src="~/images/promotion-slider1.7.jpg" /></a>
+                </div>
+                <div class="slider-content-btn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--                                                product                                     -->
+    <section class="product">
+        <div class="container">
+            <div class="product-content">
+                <div class="product-content-left">
+                    <div class="product-menu">
+                        <p>Hãng Sản Xuất</p>
+                        <a><input type="checkbox" name="samsung" value="Samsung" checked/>Samsung</a>
+                    </div>
+                    <div class="product-menu">
+                        <p>Mức giá</p>
+                        <a><input type="checkbox" name="all" value="Tất cả" checked />Tất cả</a>
+                        <a><input type="checkbox" name="duoi2trieu" value="Dưới 2 triệu" />Dưới 2 triệu</a>
+                        <a><input type="checkbox" name="tu2den4" value="Từ 2 - 4 triệu" />Từ 2 - 4 triệu</a>
+                        <a><input type="checkbox" name="tu4den7" value="Từ 4 - 7 triệu" />Từ 4 - 7 triệu</a>
+                        <a><input type="checkbox" name="tu7den13" value="Từ 7 - 13 triệu" />Từ 7 - 13 triệu</a>
+                        <a><input type="checkbox" name="tren13" value="Trên 13 triệu" />Trên 13 triệu</a>
+                    </div>
+                    <div class="product-menu">
+                        <p>Hiệu năng và Pin</p>
+                        <a><input type="checkbox" name="all" value="Tất cả" checked />Tất cả</a>
+                        <a><input type="checkbox" name="duoi3000" value="Dưới 3000 mah" />Dưới 3000 mah</a>
+                        <a><input type="checkbox" name="tu3000den4000" value="Pin từ 3000 - 4000 mah" />Pin từ 3000 - 4000 mah</a>
+                        <a><input type="checkbox" name="tu4000den5000" value="Pin từ 4000 - 5000 mah" />Pin từ 4000 - 5000 mah</a>
+                        <a><input type="checkbox" name="tren5000" value="Siêu trâu: trên 5000 mah" />Siêu trâu: trên 5000 mah</a>
+                        <a><input type="checkbox" name="choigame/cauhinhcao" value="chơi game/cấu hình cao" />chơi game/cấu hình cao</a>
+                    </div>
+                    <div class="product-menu">
+                        <p>Màn hình</p>
+                        <a><input type="checkbox" name="all" value="Tất cả" checked />Tất cả</a>
+                        <a><input type="checkbox" name="duoi5.0" value="Màn hình nhỏ: dưới 5.0 inch" />Màn hình nhỏ: dưới 5.0 inch</a>
+                        <a><input type="checkbox" name="duoi6.0" value="Nhỏ gọn vừa tay: dưới 6.0 inch, tràn viền" />Nhỏ gọn vừa tay: dưới 6.0 inch, tràn viền</a>
+                        <a><input type="checkbox" name="tren6.0" value="Trên 6.0 inch" />Trên 6.0 inch</a>
+                        <a><input type="checkbox" name="manhinhgap" value="Màn hình gập" />Màn hình gập</a>
+                    </div>
+                    <div class="product-menu">
+                        <p>Camera</p>
+                        <a><input type="checkbox" name="all" value="Tất cả" checked />Tất cả</a>
+                        <a><input type="checkbox" name="slowmotion" value="Quay phim slow motion" />Quay phim slow motion</a>
+                        <a><input type="checkbox" name="aicamera" value="AI camera" />AI camera</a>
+                        <a><input type="checkbox" name="hieuunglamdep" value="Hiệu ứng làm đẹp" />Hiệu ứng làm đẹp</a>
+                        <a><input type="checkbox" name="zoom" value="Zoom quang học" />Zoom quang học</a>
+                        <a><input type="checkbox" name="chongrungios" value="Chống rung ios" />Chống rung ios</a>
+                        <a><input type="checkbox" name="macro" value="Chụp macro" />Chụp macro</a>
+                        <a><input type="checkbox" name="chupgocrong" value="Chụp góc rộng" />Chụp góc rộng</a>
+                    </div>
+                </div>
+                <div class="product-content-right">
+                    <div class="product-content-right-head">
+                        <h3>Điện thoại samsung<span style="font-size: 12px; color: #6C757D">(12 sản phẩm)</span></h3>
+                    </div>
+                    <div class="product-content-right-items">
+                        <div class="slider-product-one-items">
+                            @foreach (var item in Model)
+                            {
+                                <div class="slider-product-one-item">
+                                    <a href="@Url.Action("ProductDetail","Home", new {id = item.ProductDetailID})"><img src="@Url.Content(item.ProImage)" /></a>
+                                    <div class="slider-product-one-item-text">
+                                        <div class="slider-product-one-item-text-info">
+                                            <p><a href="@Url.Action("ProductDetail","Home", new {id = item.ProductDetailID})">@Html.DisplayFor(modelitem => item.ProName)</a></p>
+                                            <p class="newPrice">@String.Format("{0:N0}", item.NewPrice) <span style="text-decoration:underline">đ</span></p>
+                                            <p class="oldPrice">@String.Format("{0:N0}", item.OldPrice) <span style="text-decoration:underline">đ</span></p>
+                                        </div>
+                                        <div class="slider-product-one-item-text-promo">
+                                            <ul>
+                                                <li><i class="fa-solid fa-microchip"></i> @Html.DisplayFor(modelitem => item.Cpu)</li>
+                                                <li><i class="fa-regular fa-mobile"></i> @Html.DisplayFor(modelitem => item.Screen.Split(',')[0])</li>
+                                                <li><i class="fa-solid fa-memory"></i> @Html.DisplayFor(modelitem => item.RamName)</li>
+                                                <li><i class="fa-solid fa-ticket"></i> @Html.DisplayFor(modelitem => item.StorageName)</li>
+                                            </ul>
+                                            @*<img src="" />
+                                              <p></p>*@
+                                            <a href="@Url.Action("ProductDetail","Home", new {id = item.ProductDetailID})"><input type="button" value="MUA NGAY"/></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="history">
+        <div class="container">
+            <div class="history-content">
+                <p id="history-introduce">Hãy cùng tìm hiểu về lịch sử và phát triển của điện thoại thông minh, các tính năng và thông số kỹ thuật quan trọng mà bạn cần biết khi nếu muốn mua một chiếc điện thoại phù hợp. FPT Shop cũng sẽ cung cấp cho bạn bảng thông số kỹ thuật và các thương hiệu phổ biến nhất đang kinh doanh để giúp bạn so sánh các sản phẩm và tìm ra chiếc điện thoại phù hợp nhất cho mình.</p>
+                <img src="~/images/history1.jpg" />
+                <button class="seeall-btn">Xem Thêm</button>
+                <div class="seeall">
+                    <h3>Lịch sử phát triển của điện thoại thông minh</h3>
+                    <p class="title-paragraph">Ngày đầu tiên - Sự ra đời của điện thoại di động</p>
+                    <p>Vào ngày 10 tháng 3 năm 1876, nhà khoa học người Scotland - Alexander Graham Bell đã được cấp bằng sáng chế cho việc phát minh ra điện thoại. Sự kiện này đã mở ra cách mạng viễn thông và gắn kết con người từ những nơi xa xôi thông qua giọng nói.</p><br />
+                    <p>Trong giai đoạn đầu của lịch sử điện thoại, các máy điện thoại còn rất lớn và nặng, chỉ có thể được sử dụng tại các địa điểm cố định và có giới hạn về phạm vi. Cuộc đua đầu tiên trong việc phát triển điện thoại di động đã bắt đầu vào những năm 1940 và 1950 khi các nhà nghiên cứu và kỹ sư trên khắp thế giới bắt đầu tìm cách giảm kích thước và trọng lượng của điện thoại để có thể di động hơn.</p><br />
+                    <img src="~/images/history2.jpg" />
+                    <p>Các điểm đáng chú ý trong giai đoạn này bao gồm việc ra mắt dịch vụ di động đầu tiên vào năm 1946 tại Hoa Kỳ, và việc giới thiệu các máy di động đầu tiên vào cuối những năm 1970 và đầu những năm 1980.</p>
+                    <p class="title-paragraph">Từ điện thoại di động đến điện thoại thông minh</p>
+                    <p>Thập kỷ 1990 chứng kiến sự bùng nổ thực sự của công nghệ di động với việc ra mắt các điện thoại di động thông minh (smartphone). Các thiết bị này không chỉ có khả năng gọi điện thoại mà còn tích hợp nhiều tính năng thông minh khác như: gửi tin nhắn, duyệt web, chơi game và chạy các ứng dụng đa dạng,…</p><br />
+                    <p>Motorola StarTAC, ra mắt năm 1996, được coi là một trong những smartphone đầu tiên trên thị trường. Từ đó, sự phát triển của điện thoại thông minh đã vượt bậc với sự xuất hiện của các hệ điều hành như Symbian, BlackBerry OS, iOS và Android.</p><br />
+                    <img src="~/images/history3.jpg" />
+                    <p>Cùng các công ty công nghệ hàng đầu như Apple, Samsung, HTC và Google đã cùng nhau đưa ra các dòng điện thoại thông minh vượt trội, thúc đẩy cuộc cách mạng công nghệ di động và thay đổi cách mà con người tương tác với nhau và thế giới xung quanh.</p><br />
+                    <p class="title-paragraph">Các cách mà smartphone đã thay đổi cuộc sống và công nghệ</p>
+                    <p>Điện thoại thông minh đã có sự tác động mạnh mẽ đến cuộc sống của con người. Chúng đã trở thành một phần không thể thiếu trong cuộc sống hàng ngày, giúp chúng ta giữ liên lạc với gia đình, bạn bè và đồng nghiệp. Ngoài ra, smartphone đã mở ra cơ hội mới cho việc làm việc và giải trí, thông qua ứng dụng và các tính năng tiện ích như: email, video call, mạng xã hội,…</p><br />
+                    <p>Điện thoại thông minh cũng đã thay đổi cách mà chúng ta tiếp cận thông tin và truyền tải tin tức. Nhờ vào tích hợp Internet và ứng dụng tin tức, bạn có thể nắm bắt thông tin mới nhất mọi lúc, mọi nơi. Ngoài ra, công nghệ di động đã thúc đẩy sự phát triển của nền kinh tế số và thương mại điện tử, mở ra cơ hội kinh doanh và tiếp thị trực tuyến.</p><br />
+                    <img src="~/images/history4.jpg" />
+                    <h3>Các tính năng của điện thoại di động</h3>
+                    <p>Điện thoại di động đã trải qua sự phát triển đáng kể và mang đến nhiều tính năng độc đáo giúp chúng ta dễ dàng quản lý, làm việc và giải trí cuộc sống hàng ngày. Dưới đây là những yếu tố quan trọng của điện thoại di động mà bạn nên biết:</p><br />
+                    <p class="title-paragraph">Cuộc gọi và tin nhắn</p>
+                    <p>Điện thoại di động cho phép bạn thực hiện và trả lời cuộc gọi một cách thuận tiện. Bạn cũng có thể gửi và nhận tin nhắn văn bản, hình ảnh và âm thanh, giúp duy trì liên lạc với bạn bè và gia đình.</p><br />
+                    <img src="~/images/history5.jpg" />
+                    <p class="title-paragraph">Ghi âm cuộc gọi</p>
+                    <p>Tính năng ghi âm cuộc gọi cho phép bạn lưu lại các cuộc trò chuyện quan trọng để tham khảo, nghe lại sau này.</p><br />
+                    <p class="title-paragraph">Chụp ảnh và quay phim</p>
+                    <p>Với camera tích hợp, bạn có thể chụp ảnh và quay video để lưu giữ những khoảnh khắc đáng nhớ.</p><br />
+                    <img src="~/images/history6.jpg" />
+                    <p class="title-paragraph">Xem giờ, bấm giờ, đặt báo thức</p>
+                    <p>Điện thoại di động không chỉ để xem giờ hiện tại, mà còn giúp bạn đặt báo thức và bấm giờ trong các hoạt động hàng ngày.</p><br />
+                    <p class="title-paragraph">Xem lịch và tạo lời nhắc</p>
+                    <p>Tính năng xem lịch giúp bạn quản lý thời gian hiệu quả, còn việc tạo lời nhắc sẽ giúp bạn không bỏ lỡ các sự kiện quan trọng.</p><br />
+                    <img src="~/images/history7.jpg" />
+                    <p class="title-paragraph">Nghe nhạc và xem video</p>
+                    <p>Điện thoại di động cho phép bạn tải và nghe nhạc, xem video giải trí mọi lúc, mọi nơi.</p><br />
+                    <p class="title-paragraph">Sử dụng mạng xã hội và giới hạn thời gian gọi</p>
+                    <p>Bạn có thể sử dụng mạng xã hội trực tiếp từ điện thoại di động để duyệt tin tức, chia sẻ thông tin và kết nối với bạn bè. Ngoài ra, tính năng giới hạn thời gian gọi cũng giúp bạn kiểm soát thời gian sử dụng điện thoại một cách hợp lý.</p><br />
+                    <p class="title-paragraph">Đa nhiệm và linh hoạt</p>
+                    <p>Với sự phát triển không ngừng nghỉ của các nhà sản xuất, đến nay trên thị trường còn có sự bổ sung của các smartphone gập. Với thiết kế gập độc đáo, tiên tiến, người dùng có thể gập nhiều góc độ khác nhau, sử dụng điện thoại trở nên linh hoạt hơn bao giờ. Bạn có thể để chiếc smartphone nhỏ gọn, vừa vặn trong túi, vừa có thể dùng thoải mái khi mở smartphone ra.</p><br />
+                    <img src="~/images/history8.jpg" />
+                    <p>Đặc biệt với các dòng thiết kế siêu lớn như smartphone Galaxy Z Fold của Samsung còn cho người dùng trải nghiệm điện thoại tiện lợi như máy tính bảng, đa nhiệm đơn giản, dễ dàng nâng cao hiệu suất công việc.</p><br />
+                    <img src="~/images/history9.jpg" />
+                    <h3>Bảng thông số kỹ thuật của smartphone hiện nay</h3>
+                    <p>Các thông số kỹ thuật chi tiết của từng sản phẩm điện thoại thông minh sẽ phụ thuộc vào từng phiên bản cụ thể và sự thay đổi theo thời gian. Việc tìm hiểu và so sánh các thông số kỹ thuật là rất quan trọng khi chọn mua một điện thoại di động phù hợp với nhu cầu và ngân sách của bạn.</p><br />
+                    <p>Dưới đây là bảng thông số kỹ thuật, ý nghĩa và mô tả thông số phổ biến mà FPT Shop đã tổng hợp, mời bạn tham khảo:</p><br />
+                    <table>
+                        <tr>
+                            <td>Thông số kỹ thuật</td>
+                            <td>Ý nghĩa</td>
+                            <td>Các thông số/mô tả phổ biến</td>
+                        </tr>
+                        <tr>
+                            <td>Hệ điều hành</td>
+                            <td>Hệ thống quản lý và vận hành của smartphone</td>
+                            <td>
+                                Android, iOS (Apple)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Chipset</td>
+                            <td>Bộ xử lý trung tâm của điện thoại</td>
+                            <td>
+                                Snapdragon, Apple Bionic, MediaTek, Exynos
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>RAM</td>
+                            <td>Bộ nhớ làm việc tạm thời cho ứng dụng</td>
+                            <td>
+                                3GB, 4GB, 6GB, 8GB, 12GB
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bộ nhớ trong</td>
+                            <td>
+                                Dung lượng lưu trữ cho dữ liệu và ứng dụng
+                            </td>
+                            <td>
+                                32GB, 64GB, 128GB, 256GB, 512GB, 1TB
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Màn hình</td>
+                            <td>
+                                Giao diện hiển thị của điện thoại
+                            </td>
+                            <td>
+                                Từ 6.1 inch đến 6.7 inch, FHD+ AMOLED
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Camera chính</td>
+                            <td>
+                                Máy ảnh chính phía sau của điện thoại
+                            </td>
+                            <td>
+                                12MP, 32MP, 50MP, 64MP, 108MP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Camera selfie</td>
+                            <td>
+                                Máy ảnh phía trước của điện thoại
+                            </td>
+                            <td>
+                                8MP, 12MP, 32MP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pin</td>
+                            <td>
+                                Năng lượng cung cấp cho hoạt động của điện thoại
+                            </td>
+                            <td>
+                                từ 3.700mAh đến 5.000mAh
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kết nối</td>
+                            <td>
+                                Các cổng và chức năng kết nối của điện thoại
+                            </td>
+                            <td>
+                                USB Type-C, Wi-Fi 6, Bluetooth 5.2, NFC
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cảm biến vân tay</td>
+                            <td>
+                                Cảm biến dấu vân tay để mở khóa điện thoại
+                            </td>
+                            <td>
+                                Cảm biến vân tay cạnh bên, cảm biến vân tay dưới màn hình, cảm biến Touch ID
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cảm biến khuôn mặt</td>
+                            <td>
+                                Cảm biến nhận diện khuôn mặt để mở khóa
+                            </td>
+                            <td>
+                                Khuôn mặt 3D, Face ID an toàn và nhanh chóng
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Dữ liệu di động</td>
+                            <td>
+                                Mạng di động giúp thiết bị kết nối với Internet
+                            </td>
+                            <td>
+                                Hỗ trợ mạng 4G, 5G
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kháng nước, kháng bụi</td>
+                            <td>
+                                Khả năng kháng nước hoặc bụi của điện thoại
+                            </td>
+                            <td>
+                                Tiêu chuẩn IPX4, IPX8, IP67, IP68
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jack tai nghe</td>
+                            <td>
+                                Cổng âm thanh truyền thống
+                            </td>
+                            <td>
+                                Hỗ trợ jack 3.5mm
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Thẻ nhớ</td>
+                            <td>
+                                Khả năng mở rộng bộ nhớ bằng thẻ microSD
+                            </td>
+                            <td>
+                                Hỗ trợ thẻ microSD
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>NFC</td>
+                            <td>
+                                Công nghệ truyền thông không dây
+                            </td>
+                            <td>
+                                Hỗ trợ NFC
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Hỗ trợ SIM</td>
+                            <td>
+                                Số lượng và loại SIM hỗ trợ
+                            </td>
+                            <td>
+                                Dual SIM, Nano-SIM, eSIM
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Loại màn hình</td>
+                            <td>
+                                Công nghệ màn hình và độ phân giải
+                            </td>
+                            <td>
+                                Độ phân giải: HD+, FullHD+, QHD+
+                                Công nghệ: LCD, AMOLED, Super AMOLED, Dynamic AMOLED 2X, Supter Retina XDR
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Hệ thống âm thanh</td>
+                            <td>
+                                Công nghệ âm thanh và loa ngoài
+                            </td>
+                            <td>
+                                Dolby Atmos, loa stereo
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Hỗ trợ sạc</td>
+                            <td>
+                                Công nghệ và tốc độ sạc
+                            </td>
+                            <td>
+                                Sạc nhanh 25W, sạc nhanh 33W, sạc nhanh 65W
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bluetooth</td>
+                            <td>
+                                Phiên bản Bluetooth hỗ trợ
+                            </td>
+                            <td>
+                                Bluetooth 5.2
+                            </td>
+                        </tr>
+                    </table>
+                    <h3>Phân loại điện thoại theo nhu cầu sử dụng</h3>
+                    <p>Tùy thuộc vào mục đích sử dụng, có nhiều loại điện thoại được thiết kế để đáp ứng từng nhu cầu cụ thể. Dưới đây là một số phân loại điện thoại dựa trên nhu cầu sử dụng, mời bạn tham khảo:</p><br />
+                    <p class="title-paragraph">Điện thoại dành cho người yêu thích chụp ảnh</p>
+                    <p>Với sự phát triển của các mạng xã hội, việc chụp ảnh, quay video và chia sẻ chúng đã trở thành một phần quan trọng trong cuộc sống của chúng ta. Đối với những người yêu thích chụp ảnh và muốn có những bức ảnh đẹp, điện thoại thông minh với camera xuất sắc là sự lựa chọn hàng đầu.</p><br />
+                    <img src="~/images/history10.jpg" />
+                    <p>
+                        Những mẫu điện thoại này thường đi kèm với các tính năng nâng cao như chụp góc siêu rộng, zoom quang học và khả năng xử lý ảnh hàng đầu. Một số sản phẩm bạn có thể tham khảo:iPhone 14 Pro/Pro Max
+                    </p><br />
+                    <p>Samsung Galaxy S23/ S23 Ultra</p><br />
+                    <p>Samsung Galaxy Z Flip5</p><br />
+                    <p>Xiaomi 13</p><br />
+                    <p>Samsung Galaxy A54/A34</p><br />
+                    <p>OPPO Reno10 5G/ Reno8 series</p><br />
+                    <p class="title-paragraph">Điện thoại cho công việc và doanh nhân</p>
+                    <h3>Mua điện thoại giá rẻ ở đâu uy tín, có trả góp?</h3>
+                    <p>FPT Shop là một trong những địa chỉ uy tín và đáng tin cậy để mua sắm điện thoại giá tốt tại Việt Nam. Hệ thống cửa hàng FPT Shop có mặt trên 63 tỉnh thành giúp người dùng dễ dàng mua hàng với nhiều lựa chọn điện thoại thông minh phù hợp cho mọi ngân sách và nhu cầu sử dụng. </p><br />
+                    <img src="~/images/history11.jpg" />
+                    <p>Dưới đây là loạt ưu điểm nổi bật khi chọn mua điện thoại tại FPT Shop:</p>
+                    <p>Đa dạng sản phẩm: FPT Shop cung cấp một loạt các điện thoại từ giá rẻ đến cao cấp đầy đủ các hãng điện thoại nổi tiếng như: iPhone, Samsung, Xiaomi, OPPO, Vivo, Realme, Nokia…</p><br />
+                    <p>Khuyến mãi và ưu đãi: FPT Shop thường có các chương trình khuyến mãi và ưu đãi hấp dẫn như: giảm giá, tặng quà hoặc giảm giá khi mua kèm phụ kiện.</p><br />
+                    <p>Mua hàng và tiện lợi: Cửa hàng FPT Shop có mặt trên 63 tỉnh thành, bạn có thể đến với cửa hàng FPT Shop gần nhất để trải nghiệm và mua hàng tiện lợi. Đồng thời, bạn cũng có thể gọi đến tổng đài miễn phí 1800 6601 để được tư vấn và mua hàng nhanh chóng.</p><br />
+                    <p>Bảo hành và hậu mãi: FPT Shop cam kết cung cấp sản phẩm chính hãng và bảo hành uy tín, giúp người dùng hoàn toàn yên tâm khi lựa chọn FPT Shop là nơi mua sắm các thiết bị công nghệ chính hãng.</p><br />
+                    <p>Trả góp 0% tiện lợi: FPT Shop cũng cung cấp chương trình trả góp tiện lợi và linh hoạt cho khách hàng mua điện thoại.</p><br />
+                    <img src="~/images/history12.jpg" />
+                    <p>Như vậy, để mua một chiếc điện thoại thông minh phù hợp với nhu cầu của mình, bạn cần xác định rõ ngân sách, so sánh các sản phẩm hay tham khảo ý kiến từ các chuyên gia và người dùng khác. Và đừng quên, FPT Shop là một trong những địa chỉ uy tín để mua sắm điện thoại, với nhiều lựa chọn giá tốt và các dịch vụ hỗ trợ tận tình. Hãy đến ngay FPT Shop để tìm kiếm cho mình một chiếc điện thoại phù hợp nhất bạn nhé.</p>
+                    <button class="colapse-btn">Thu Gọn</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="~/Scripts/ProductCategoryJS.js"></script>
+</body>
+

@@ -1,0 +1,130 @@
+﻿@model IEnumerable<DuAnFptShop.Models.ProductQuestion>
+
+<style>
+    .accordion {
+        width: 100%;
+        padding: 20px;
+        background-color: #FFFFFF;
+    }
+
+        .accordion h2 {
+            color: #212529;
+            font-size: 20px;
+            padding: 20px;
+            border: 1px solid #EEF0F2;
+            border-radius: 5px 5px 0 0;
+        }
+
+    .accordion-item {
+        padding: 10px 20px;
+        border: 1px solid #EEF0F2;
+        position: relative;
+    }
+
+        .accordion-item .label {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+    .label h3 {
+        margin-left: 10px;
+        color: #212529;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .label .fa-question {
+        width: 24px;
+        height: 24px;
+        background-color: #CED4DA;
+        color: #FFFFFF;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 24px;
+    }
+
+    .label:before {
+        content: "+";
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        transform: translateY(-50%);
+        border: 1px solid #CED4DA;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 28px;
+        cursor: pointer;
+        color: #444B52;
+    }
+
+    .label:hover:before {
+        background-color: #e9ecef;
+    }
+
+    .accordion-content {
+        color: #495057;
+        padding: 0 90px 0 0;
+        position: relative;
+        height: 0px;
+        overflow: hidden;
+        transition: 0.3s;
+        overflow-y: auto;
+    }
+
+        .accordion-content p {
+            margin-bottom: 11px;
+        }
+
+    .accordion-item.active .accordion-content {
+        height: 65px;
+    }
+
+    .accordion-item.active .label:before {
+        content: "-";
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        transform: translateY(-50%);
+        border: 1px solid #CED4DA;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 28px;
+        font-size: 30px;
+        cursor: pointer;
+        color: #444B52;
+    }
+</style>
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/ProductDetailCSS.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="accordion">
+        <h2>Câu hỏi thường gặp</h2>
+        @foreach (var item in Model)
+        {
+            <div class="accordion-item">
+                <div class="label">
+                    <i class="fa-solid fa-question"></i>
+                    <h3>@Html.DisplayFor(modelitem => item.QuestionTitle)</h3>
+                </div>
+                <div class="accordion-content">
+                    <p>@Html.DisplayFor(modelitem => item.Answer)</p>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+<script defer src="~/Scripts/ProductDetailJS.js"></script>

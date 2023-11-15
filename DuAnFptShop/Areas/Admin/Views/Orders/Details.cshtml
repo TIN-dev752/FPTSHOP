@@ -1,0 +1,100 @@
+﻿@model DuAnFptShop.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .form-horizontal {
+        width: 100%;
+        background-color: #ffffff;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .header-content {
+        width: 100%;
+        background-color: #E1EDDB;
+        color: #91A990;
+        height: 50px;
+        padding: 0px 20px;
+        font-weight: bold;
+    }
+
+        .header-content h4 {
+            line-height: 50px;
+        }
+
+    .control-label {
+        width: 100%;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    dt, dd {
+        padding: 5px 20px;
+    }
+
+    dd {
+        border-bottom: 1px solid #9B9D9E;
+    }
+
+    .btn-default {
+        border: 1px solid #CFD5DB;
+        border-radius: 5px;
+    }
+
+        .btn-default a {
+            text-decoration: none;
+            color: #212529;
+        }
+</style>
+
+
+<div>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <h4>Xem chi tiết đơn hàng</h4>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="container">
+            <table>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Màu sắc</th>
+                    <th>Số lượng</th>
+                    <th>Tổng tiền</th>
+                    <th>Thành Tiền</th>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayFor(model => model)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="detail-btn">
+        <div class="container">
+            <div class="detail-btn-content">
+                @*<button class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) </button>*@
+                <button class="btn btn-default">@Html.ActionLink("Danh sách", "Index")</button>
+            </div>
+        </div>
+    </div>
+</div>

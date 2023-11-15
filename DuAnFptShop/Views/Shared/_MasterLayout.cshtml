@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/_MasterLayoutCSS.css" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><p><span class="btn-Content"><span class="btn-Top">.</span></span>Chính thức nhận cọc iphone 15 Family</p></li>
+            <li><input style="cursor:pointer" type="button" value="Đặt trước ngay" /></li>
+        </ul>
+    </header>
+    <div id="main-menu">
+        <div class="container">
+            <ul>
+                <li><a href=""><img src="~/images/logoFPT.png" /></a></li>
+                <li><input type="text" placeholder="Nhập tên điện thoại, máy tính, phụ kiện...cần tìm" maxlength="57"/><i class="fa-solid fa-magnifying-glass"></i></li>
+                @*<li>
+                    <a href=""><i class="fa-solid fa-file-invoice"></i><br />Thông tin hay</a>
+                    <div class="subMenu">
+                        <ul>
+                            <li><a href="">Tin mới</a></li>
+                            <li><a href="">Khuyến mãi</a></li>
+                            <li><a href="">Điện máy - Gia dụng</a></li>
+                            <li><a href="">Thủ thuật</a></li>
+                            <li><a href="">For Gamers</a></li>
+                            <li><a href="">Video hot</a></li>
+                            <li><a href="">Đánh giá - tư vấn</a></li>
+                            <li><a href="">App & Game</a></li>
+                            <li><a href="">Sự kiện</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="" title="Thanh toán & tiện ích"><i class="fa-solid fa-file-invoice-dollar"></i><br />Thanh toán & tiện ích</a></li>*@
+                <li id="account-form"> <a href="#" title="Tài khoản của tôi"><i class="fa-solid fa-user"></i><br />Tài khoản của tôi</a></li>
+                <li><a href="ShopCart"><i class="fa-solid fa-cart-shopping"></i><br />Giỏ hàng</a></li>
+            </ul>
+            <div class="account-form">
+                <div class="account-form-content">
+                    <h2>Đăng Nhập Hoặc Tạo Tài Khoản <span id="account-form-closed">X</span></h2>
+                    <form id="form-dang-ky" action="" method="post">
+                        <img style="width:30%; height:30%" src="~/images/account-form.jpg" />
+                        <p>
+                            Nhập số điện thoại mua hàng để hưởng<br />
+                            đặc quyền riêng tại FPT Shop
+                        </p>
+                        <input type="text" class="phone-number" placeholder="Nhập số điện thoại" maxlength="10" onkeyup="validatePhoneNumber()"/>
+                        <span class="phonenumber-error"></span>
+                        <button>TIẾP TỤC</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="ProductCategory"><i class="fa-solid fa-mobile-screen-button"></i> ĐIỆN THOẠI SAMSUNG</a>
+                    <div class="subMenu">
+                        <p>HÃNG SẢN XUẤT</p>
+                        <ul>
+                            @*<li><a href="">Apple (iPhone)</a></li>*@
+                            <li><a href="@Url.Action("ProductCategory","Home")">SamSung</a></li>
+                            @*<li><a href="">Oppo</a></li>
+                            <li><a href="">Xiaomi</a></li>
+                            <li><a href="">Realmi</a></li>
+                            <li><a href="">Honor</a></li>
+                            <li><a href="">Vivo</a></li>
+                            <li><a href="">Asus</a></li>
+                            <li><a href="">Masstel</a></li>
+                            <li><a href="">Nokia</a></li>*@
+                        </ul>
+                    </div>
+                </li>
+                @*<li>
+                    <a href=""><i class="fa-solid fa-laptop"></i>LAPTOP</a>
+                    <div class="subMenu">
+                        <p>HÃNG SẢN XUẤT</p>
+                        <ul>
+                            <li><a href="">Apple (MacBook)</a></li>
+                            <li><a href="">Asus</a></li>
+                            <li><a href="">HP</a></li>
+                            <li><a href="">Lenovo</a></li>
+                            <li><a href="">Acer</a></li>
+                            <li><a href="">MSI</a></li>
+                            <li><a href="">Dell</a></li>
+                            <li><a href="">Gigabyte</a></li>
+                            <li><a href="">Huawei</a></li>
+                            <li><a href="">LG</a></li>
+                            <li><a href="">Masstel</a></li>
+                            <li><a href="">Vaio</a></li>
+                            <li><a href="">Microsoft (Surface)</a></li>
+                            <li><a href="">Chuwi</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href=""><i class="fa-light fa-tablet-button fa-rotate-270"></i>MÁY TÍNH BẢNG</a>
+                    <div class="subMenu">
+                        <p>HÃNG SẢN XUẤT</p>
+                        <ul>
+                            <li><a href="">Apple (iPad)</a></li>
+                            <li><a href="">Samsung</a></li>
+                            <li><a href="">Masstel</a></li>
+                            <li><a href="">Lenovo</a></li>
+                            <li><a href="">Xiaomi</a></li>
+                            <li><a href="">Oppo</a></li>
+                            <li><a href="">Coolpad</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href=""><i class="fa-light fa-tablet-button fa-rotate-270"></i>APPLE</a>
+                    <div class="subMenu">
+                        <p>CÁC SẢN PHẨM APPLE</p>
+                        <ul>
+                            <li><a href="">iPhone</a></li>
+                            <li><a href="">iPad</a></li>
+                            <li><a href="">MacBook</a></li>
+                            <li><a href="">Apple Watch</a></li>
+                            <li><a href="">Apple tai nghe</a></li>
+                            <li><a href="">iMac</a></li>
+                            <li><a href="">Mac Mini</a></li>
+                            <li><a href="">Sạc & Cáp</a></li>
+                            <li><a href="">Ốp Lưng & Bao da</a></li>
+                            <li><a href="">Apple TV</a></li>
+                            <li><a href="">Chuột & Trackpad</a></li>
+                            <li><a href="">Bàn phím</a></li>
+                            <li><a href="">Air Tag</a></li>
+                            <li><a href="">Hàng dự án</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href=""><i class="fa-solid fa-computer"></i>PC-LINH KIỆN</a>
+                    <div class="subMenu">
+                        <ul>
+                            <li><a href="">PC</a></li>
+                            <li><a href="">Linh Kiện</a></li>
+                            <li><a href="">Màn Hình</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href=""><i class="fa-solid fa-headphones-simple"></i>PHỤ KIỆN</a>
+                    <div class="subMenu">
+                        <ul>
+                            <li><a href="">Router</a></li>
+                            <li><a href="">Bao da ốp lưng</a></li>
+                            <li><a href="">Sạc dự phòng</a></li>
+                            <li><a href="">Thẻ nhớ</a></li>
+                            <li><a href="">Phụ kiện apple</a></li>
+                            <li><a href="">Miếng dán màn hình</a></li>
+                            <li><a href="">loa</a></li>
+                            <li><a href="">USB - Ổ cứng</a></li>
+                            <li><a href="">Cáp sạc</a></li>
+                            <li><a href="">Tai nghe</a></li>
+                            <li><a href="">Chuột</a></li>
+                            <li><a href="">Bàn ghế gaming</a></li>
+                            <li><a href="">Balo - Túi xách</a></li>
+                            <li><a href="">TV BOX</a></li>
+                            <li><a href="">Phụ kiện khác</a></li>
+                            <li><a href="">Phụ kiện khẩu trang lọc khí</a></li>
+                            <li><a href="">Bàn phím</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href=""><i class="fa-solid fa-arrow-rotate-left fa-flip-horizontal"></i>MÁY CŨ GIÁ RẺ</a></li>
+                <li><a href=""><i class="fa-solid fa-house-laptop"></i>HÀNG GIA DỤNG</a></li>
+                <li><a href=""><i class="fa-solid fa-sim-card"></i>SIM & THẺ</a></li>
+                <li>
+                    <a href=""><i class="fa-brands fa-shopify"></i>KHUYẾN MÃI</a>
+                    <div class="subMenu">
+                        <ul>
+                            <li><a href="">Thông tin trao thưởng</a></li>
+                            <li><a href="">Tất cả khuyến mãi</a></li>
+                        </ul>
+                    </div>
+                </li>*@
+            </ul>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-top">
+                    <div class="footer-list">
+                        <ul class="footer-list-content">
+                            <li><a>Giới thiệu về công ty</a></li>
+                            <li><a>Chính sách bảo mật</a></li>
+                            <li><a>Quy chế hoạt động</a></li>
+                            <li><a>Kiểm tra hóa đơn điện tử</a></li>
+                            <li><a>Tra cứu thông tin bảo hành</a></li>
+                            <li><a>Câu hỏi thường gặp mua hàng</a></li>
+                        </ul>
+                        <img style="width:50px;height:auto" src="~/images/ft-img1.png" />
+                        <img style="width:120px;height:auto" src="~/images/ft-img2.png" />
+                    </div>
+                    <div class="footer-list">
+                        <ul class="footer-list-content">
+                            <li><a>Tin tuyển dụng</a></li>
+                            <li><a>Tin khuyến mãi</a></li>
+                            <li><a>Hướng dẫn mua online</a></li>
+                            <li><a>Hướng dẫn mua trả góp</a></li>
+                            <li><a>Chính sách trả góp</a></li>
+                            <li><a>Chính sách thu thập và<br /> xử lĩ dữ liệu cá nhân</a></li>
+                        </ul>
+                        <p>Chứng nhận:</p>
+                        <img src="~/images/dmca.png" />
+                        <img src="~/images/logo-sanphamdichvu.png" />
+                        <img src="~/images/logo-vietnam.png" />
+                    </div>
+                    <div class="footer-list">
+                        <ul class="footer-list-content">
+                            <li><a>Hệ thống cửa hàng</a></li>
+                            <li><a>Chính sách đổi trả</a></li>
+                            <li><a>Hệ thống bảo hành</a></li>
+                            <li><a>Giới thiệu máy đổi trả</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-list">
+                        <ul class="footer-list-content">
+                            <li>
+                                <p>Tư vấn mua hàng (Miễn phí)</p>
+                                <a><span style="color:#CB1C22; font-size:18px">1800 6601</span>(Nhánh 1)</a>
+                            </li>
+                            <li>
+                                <p>Hỗ trợ kỹ thuật</p>
+                                <a><span style="color:#CB1C22; font-size:18px">1800 6601</span> (Nhánh 2)</a>
+                            </li>
+                            <li>
+                                <p>Góp ý, khiếu nại (8h00 - 22h00)</p>
+                                <a><span style="color:#CB1C22; font-size:18px">1800 6616</span></a>
+                            </li>
+                        </ul>
+                        <p>Hỗ trợ thanh toán:</p>
+                        <div class="footer-payment">
+                            <img src="~/images/visa-pay.png" />
+                            <img src="~/images/mastercard-pay.png" />
+                            <img src="~/images/jcb-pay.png" />
+                            <img src="~/images/american-pay.png" />
+                            <img src="~/images/atm-pay.png" />
+                            <img src="~/images/moca-pay.png" />
+                            <img src="~/images/zalo-footer-pay.png" />
+                            <img src="~/images/vn-footer-pay.png" />
+                            <img src="~/images/redivo-pay.png" />
+                            <img src="~/images/smart-pay.png" />
+                            <img src="~/images/fox-pay.png" />
+                            <img src="~/images/le-pay.png" />
+                        </div>
+                    </div>
+                    <div class="footer-list">
+                        <ul class="footer-list-content">
+                            <li>
+                                <p style="display:inline-block">Kết nối với chúng tôi:</p>
+                                <a href="https://www.facebook.com/FPTShopOnline/"><img style="width:20px; height:auto; display:inline-block; margin:0 5px" src="~/images/icon-facebook.png" /> </a>
+                                <a href="https://zalo.me/2659487666103055748"><img style="width: 20px; height: auto; display: inline-block; margin: 0 5px" src="~/images/icon-zalo.png" /></a>
+                            </li>
+                            <li>
+                                <p>Website cùng FPT Retail:</p>
+                            </li>
+                            <li>
+                                <p>Cửa hàng uỷ quyền bởi Apple:</p>
+                                <a><img src="~/images/F-studio.png" /></a>
+                            </li>
+                            <li>
+                                <p>Trung tâm bảo hành uỷ quyền Apple:</p>
+                                <a><img src="~/images/F-care.png" /></a>
+                            </li>
+                            <li>
+                                <p>Chuỗi nhà thuốc:</p>
+                                <a><img src="~/images/nhathuoclongchau.png" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2007 - 2023 Công Ty Cổ Phần Bán Lẻ Kỹ Thuật Số FPT / Địa chỉ: 261 - 263 Khánh Hội, P2, Q4, TP. Hồ Chí Minh / GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp ngày</p>
+                    <p>08/03/2012. GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018. Điện thoại: <span>(028) 7302 3456</span>. Email: <span>fptshop@fpt.com</span>. Chịu trách nhiệm nội dung: Nguyễn Trịnh Nhật</p>
+                    <p>Linh</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/Scripts/MasterLayoutJS.js">
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    .container{
+        width:1200px;
+        margin:0 auto;
+    }
+
+    .container > a{
+        color:indianred;
+        font-size:20px;
+        text-decoration:none;
+        margin-right:10px;
+    }
+
+    .container > a:hover{
+        color:indianred;
+    }
+
+    li {
+        list-style-type: none;
+        margin-top: 4px;
+    }
+
+    li a{
+        text-decoration:none;
+        color:white;
+        margin:0 10px;
+    }
+
+     li a:hover{
+         color:peachpuff;
+     }
+
+     footer p{
+         color:indianred;
+     }
+</style>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            <a href="@Url.Action("Index","Categories")">FPTSHOP</a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li><a href="@Url.Action("Index","Categories")">Loại hàng</a></li> 
+                    <li><a href="@Url.Action("Index","Products")">Kho hàng</a></li> 
+                    <li><a href="@Url.Action("Index","Orders")">Đơn hàng</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - FPTSHOP chuyên cung cấp các sản phẩm điện tử chính hãng uy tín hàng đầu <span style="color:darkgoldenrod">Việt Nam</span></p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

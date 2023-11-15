@@ -1,0 +1,96 @@
+﻿@model IEnumerable<DuAnFptShop.Models.ViewModel.HomeViewModel>
+
+<style>
+    .slider-product-one-items {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .slider-product-one-title {
+        color: #CD1817;
+        font-size: larger;
+        padding: 20px 0px 20px 20px;
+    }
+
+    .slider-product-one-item {
+        width: 25%;
+        border-radius: 5px;
+        padding: 10px;
+        position: relative;
+    }
+
+        .slider-product-one-item:hover {
+            border: 1px solid #DEE2E6;
+        }
+
+            .slider-product-one-item:hover > a > img {
+                width: 100%;
+                transition: all 0.3s ease;
+            }
+
+        .slider-product-one-item > a > img {
+            width: 95%;
+            cursor: pointer;
+        }
+
+    .slider-product-one-item-text-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+
+        .slider-product-one-item-text-info a p.proName {
+            font-size: 20px;
+            font-weight: bold;
+            color: #474C51;
+            display: block;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .slider-product-one-item-text-info a p.proName:hover {
+            color: royalblue;
+        }
+
+        .slider-product-one-item-text-info a p.newPrice {
+            display: inline-block;
+            background-color: #CB1C22;
+            color: white;
+            border-radius: 10px;
+            width: 130px;
+            height: 32px;
+            text-align: center;
+            line-height: 28px;
+        }
+
+        .slider-product-one-item-text-info a p.oldPrice {
+            display: inline-block;
+            color: #919191;
+            text-decoration: line-through;
+        }
+
+        .slider-product-one-item-text-info a p.newPrice:hover{
+            color: white;
+        }
+
+        .slider-product-one-item-text-info a p.oldPrice:hover {
+            color: #919191;
+        }
+</style>
+
+<div class="slider-product-one-items">
+    @foreach (var item in Model)
+    {
+        <div class="slider-product-one-item">
+            <a href="@Url.Action("ProductDetail","Home", new {id = item.ProductDetailID})"><img src="@Url.Content(item.ProImage)" /></a>
+            <div class="slider-product-one-item-text">
+                <div class="slider-product-one-item-text-info">
+                    <a href="@Url.Action("ProductDetail","Home", new {id = item.ProductDetailID})"><p class="proName">@Html.DisplayFor(modelitem => item.ProName)</p></a>
+                    <a href="@Url.Action("ProductDetail","Home", new {id = item.ProductDetailID})"><p class="newPrice">@string.Format("{0:N0}", item.NewPrice) <span style="text-decoration: underline">đ</span></p></a>
+                    <a href="@Url.Action("ProductDetail","Home", new {id = item.ProductDetailID})"><p class="oldPrice">@string.Format("{0:N0}", item.OldPrice) <span style="text-decoration: underline">đ</span></p></a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,399 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/*---------------------------------------main-menu-----------------------------------*/
+
+#main-menu {
+    background-color: #CD1818;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+#main-menu ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+    #main-menu ul li img {
+        width: 151px;
+        height: 40px;
+        margin-top: 5px;
+    }
+
+    #main-menu ul li a {
+        color: white;
+    }
+
+    #main-menu ul li:nth-child(2) {
+        position: relative;
+    }
+
+        #main-menu ul li:nth-child(2) input {
+            width: 480px;
+            line-height: 38px;
+            border-radius: 5px;
+            border-color: transparent;
+            outline: none;
+        }
+
+        #main-menu ul li:nth-child(2) i {
+            width: 55px;
+            height: 43px;
+            background-color: #333333;
+            color: white;
+            position: absolute;
+            font-size: 25px;
+            margin-left: -45px;
+            border-radius: 0px 5px 5px 0px;
+            border-color: transparent;
+            outline: none;
+            right: 0px;
+            text-align: center;
+            line-height: 43px;
+            cursor:pointer;
+        }
+
+    #main-menu ul li:nth-child(3), #main-menu ul li:nth-child(4), #main-menu ul li:nth-child(5), #main-menu ul li:nth-child(6) {
+        text-align: center;
+    }
+
+    #main-menu ul li:nth-child(3) {
+        position: relative;
+    }
+
+#main-menu .container ul li:nth-child(3) .subMenu {
+    position: absolute;
+    width: 158px;
+    height: auto;
+    border: 1px solid lightgrey;
+    left: 0;
+    top: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    z-index: 10;
+}
+
+    #main-menu .container ul li:nth-child(3) .subMenu ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+        #main-menu .container ul li:nth-child(3) .subMenu ul li {
+            width: 100px;
+            padding: 5px;
+            text-align: left;
+        }
+
+    #main-menu .container ul li:nth-child(3) .subMenu a {
+        color: black;
+    }
+
+#main-menu .container ul li:nth-child(3):hover .subMenu {
+    display: block;
+}
+
+nav {
+    background-color: #252525;
+}
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        nav ul li {
+            padding: 7px 5px;
+        }
+
+            nav ul li a {
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+.container > ul > li:hover > a {
+    color: lightslategrey;
+}
+
+/*---------------------------------main menu account form-------------------------------*/
+
+.account-form {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 100;
+    display: none;
+}
+
+.account-form-content {
+    width: 600px;
+    height: 500px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+    .account-form-content h2 {
+        color: #444B52;
+        padding: 10px 20px;
+        text-align: left;
+        border-bottom: 1px solid #E9ECEF;
+        position: relative;
+    }
+
+        .account-form-content h2 span {
+            display: block;
+            position: absolute;
+            padding: 0 6px;
+            right: 10px;
+            top: 10px;
+            font-size: 18px;
+            color: #939CA3;
+            cursor: pointer;
+        }
+
+            .account-form-content h2 span:active .account-form {
+                display: none;
+            }
+
+    .account-form-content form {
+        padding: 10px 40px;
+        width: 100%;
+        height: 100%;
+    }
+
+        .account-form-content form img {
+            border-radius: 50%;
+        }
+
+        .account-form-content form p {
+            padding: 10px;
+            color: #444B52;
+        }
+
+        .account-form-content form input {
+            width: 400px;
+            height: 50px;
+            padding:0 10px;
+            outline: none;
+            margin-top: 30px;
+        }
+
+        .account-form-content form span.phonenumber-error {
+            font-size: 13px;
+            color: #FB8881;
+            display:block;
+        }
+
+        .account-form-content form button {
+            display: block;
+            margin:10px auto;
+            width: 150px;
+            height: 50px;
+            background-color: #CB1C22;
+            color: white;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+nav ul li i {
+    margin-right: 4px;
+}
+/*----------------------subMenu-------------------*/
+.container ul li {
+    position: relative;
+}
+
+.subMenu {
+    position: absolute;
+    width: 500px;
+    height: auto;
+    border: 1px solid lightgrey;
+    background-color: white;
+    left: 0;
+    top: 100%;
+    padding: 12px;
+    display: none;
+    z-index: 10;
+}
+
+.container ul li:hover .subMenu {
+    display: block;
+}
+
+.subMenu ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+    .subMenu ul li {
+        border-bottom: 1px solid lightgrey;
+        width: 30%;
+        height: auto;
+    }
+
+        .subMenu ul li a {
+            color: dimgray;
+        }
+
+            .subMenu ul li a:hover {
+                color: lightslategrey;
+            }
+
+.subMenu p {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.container ul li:nth-child(5) .subMenu {
+    position: absolute;
+    width: 158px;
+    height: auto;
+    border: 1px solid lightgrey;
+    left: 0;
+    top: 100%;
+    padding: 12px;
+}
+
+    .container ul li:nth-child(5) .subMenu ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .container ul li:nth-child(5) .subMenu ul li {
+            width: 100px;
+            padding: 5px;
+            text-align: left;
+        }
+
+.container ul li:nth-child(10) .subMenu {
+    position: absolute;
+    width: 158px;
+    height: auto;
+    border: 1px solid lightgrey;
+    left: 0;
+    top: 100%;
+    padding: 12px;
+}
+
+    .container ul li:nth-child(10) .subMenu ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .container ul li:nth-child(10) .subMenu ul li {
+            width: 100px;
+            padding: 5px;
+            text-align: left;
+        }
+
+.container #promotion-top {
+    max-width: 100%;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+/*-----------------------------footer------------------------------------*/
+.footer {
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .footer-top .footer-list {
+        width: 20%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+.footer-list-content li {
+    color: #0664F9;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.footer-list:nth-child(1) img {
+    margin: 5px 0 0 12px;
+}
+
+.footer-list:nth-child(2) img {
+    width: 30%;
+    display: inline-block;
+    margin-top: 5px;
+    width: 40px;
+    height: auto;
+}
+
+.footer-list-content li:hover a {   
+    color: black;
+    cursor: pointer;
+}
+
+.footer-list-content:last-child li i {
+    font-size: 20px;
+    color: blue;
+}
+
+.footer-list-content:last-child li img {
+    width: 100%;
+    height: auto;
+}
+
+.footer-list p {
+    color: #444B52;
+}
+
+.footer-payment img {
+    width: 24%;
+    padding: 2px;
+    border: none;
+    outline: none;
+}
+
+.footer-payment {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFFFFF;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-bottom span{
+    color:#0037C1;
+    cursor:pointer;
+}

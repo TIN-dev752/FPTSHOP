@@ -1,0 +1,142 @@
+﻿@model IEnumerable<DuAnFptShop.Models.ViewModel.HomeViewModel>
+
+<style>
+    .slider-product-one-items {
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: space-evenly;
+    }
+
+    .slider-product-one-title {
+        color: #CD1817;
+        font-size: larger;
+        padding: 20px 0px 20px 20px;
+    }
+
+    .slider-product-one-item {
+        width: 25%;
+        border-radius: 5px;
+        padding: 10px;
+        position: relative;
+    }
+
+        .slider-product-one-item:hover {
+            border: 1px solid #DEE2E6;
+        }
+
+            .slider-product-one-item:hover > a > img {
+                width: 100%;
+                transition: all 0.3s ease;
+            }
+
+        .slider-product-one-item > a > img {
+            width: 95%;
+            cursor: pointer;
+        }
+
+    .slider-product-one-item-text-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+        .slider-product-one-item-text-info p:nth-child(1) {
+            font-size: 20px;
+            font-weight: bold;
+            color: #474C51;
+            display: block;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+            .slider-product-one-item-text-info p:nth-child(1):hover {
+                color: royalblue;
+            }
+
+        .slider-product-one-item-text-info p:nth-child(2) {
+            display: inline-block;
+            background-color: #CB1C22;
+            color: white;
+            border-radius: 10px;
+            width: 130px;
+            height: 28px;
+            text-align: center;
+            line-height: 28px;
+        }
+
+        .slider-product-one-item-text-info p:nth-child(3) {
+            display: inline-block;
+            color: #919191;
+            text-decoration: line-through;
+        }
+
+    .slider-product-one-item-text-promo {
+        padding: 10px;
+        margin-bottom: 30px;
+        color: #555555;
+    }
+
+        .slider-product-one-item-text-promo img {
+            border-radius: 100%;
+            border: 1px solid grey;
+        }
+
+        .slider-product-one-item-text-promo ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+            .slider-product-one-item-text-promo ul li {
+                padding: 5px;
+                font-size: 14px;
+                color: #B6BFC7;
+            }
+
+        .slider-product-one-item-text-promo a input {
+            position: absolute;
+            width: 50%;
+            height: 40px;
+            text-align: center;
+            bottom: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: none;
+            cursor: pointer;
+        }
+
+    .slider-product-one-item:hover a input {
+        display: block;
+    }
+
+</style>
+
+<div class="slider-product-one-items">
+    @foreach (var item in Model)
+    {
+        <div class="slider-product-one-item">
+            <a href="@Url.Action("ProductDetail","Home", new {id = item.ProductDetailID})"><img src="@Url.Content(item.ProImage)" /></a>
+            <div class="slider-product-one-item-text">
+                <div class="slider-product-one-item-text-info">
+                    <a href="@Url.Action("ProductDetail","Home", new {id = item.ProductDetailID})"><p>@Html.DisplayFor(modelitem => item.ProName)</p></a>
+                    <p class="newPrice">@String.Format("{0:N0}", item.NewPrice) <span style="text-decoration:underline">đ</span></p>
+                    <p class="oldPrice">@String.Format("{0:N0}", item.OldPrice) <span style="text-decoration:underline">đ</span></p>
+                </div>
+                <div class="slider-product-one-item-text-promo">
+                    <ul>
+                        <li><i class="fa-solid fa-microchip"></i> @Html.DisplayFor(modelitem => item.Cpu)</li>
+                        <li><i class="fa-regular fa-mobile"></i> @Html.DisplayFor(modelitem => item.Screen.Split(',')[0])</li>
+                        <li><i class="fa-solid fa-memory"></i> @Html.DisplayFor(modelitem => item.RamName)</li>
+                        <li><i class="fa-solid fa-ticket"></i> @Html.DisplayFor(modelitem => item.StorageName)</li>
+                    </ul>
+                    @*<img src="" />
+                        <p></p>*@
+                    <a href="@Url.Action("ProductDetail","Home", new {id = item.ProductDetailID})"><input type="button" value="MUA NGAY" /></a>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

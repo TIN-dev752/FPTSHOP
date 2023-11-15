@@ -1,0 +1,146 @@
+﻿@model DuAnFptShop.Models.Category
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .form-horizontal {
+        width: 100%;
+        background-color: #ffffff;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .header-content {
+        width: 100%;
+        background-color: #E1EDDB;
+        color: #91A990;
+        height: 50px;
+        padding: 0px 20px;
+        font-weight: bold;
+    }
+
+        .header-content h4 {
+            line-height: 50px;
+        }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .form-group-content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .control-label {
+        width: 100%;
+        font-weight: bold;
+    }
+
+    .Cate-text {
+        width: 100%;
+    }
+
+    .Cate-ID {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #CFD5DB;
+        max-width: 100%;
+        border-radius: 5px;
+        outline: none;
+        padding: 10px;
+    }
+
+    .Cate-Name {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #CFD5DB;
+        max-width: 100%;
+        border-radius: 5px;
+        outline: none;
+        padding: 10px;
+    }
+
+    .btn-default {
+        border: 1px solid #CFD5DB;
+        border-radius: 5px;
+    }
+
+    .btn-default:hover{
+    background-color:powderblue;
+    }
+
+        .btn-default a {
+            text-decoration: none;
+            color: #212529;
+        }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h4>QUẢN LÝ LOẠI HÀNG</h4>
+                </div>
+            </div>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="container">
+                <div class="form-group-content">
+                    @*@Html.LabelFor(model => model.CateID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <label for="CateID" class="control-label">Mã loại</label>
+                    <div class="Cate-text">
+                        @*@Html.EditorFor(model => model.CateID, new { htmlAttributes = new { @class = "form-control" } })*@
+                        <input id="CateID" name="CateID" type="text" class="Cate-ID" />
+                        @Html.ValidationMessageFor(model => model.CateID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="container">
+                <div class="form-group-content">
+                    @*@Html.Label("Tên loại", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <label for="CateID" class="control-label col-md-2">Tên loại</label>
+                    <div class="Cate-text">
+                        @*@Html.EditorFor(model => model.CateName, new { htmlAttributes = new { @class = "form-control" } })*@
+                        <input id="CateName" name="CateName" type="text" class="Cate-Name" />
+                        @Html.ValidationMessageFor(model => model.CateName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="container">
+                <div class="form-group-content">
+                    <input type="submit" value="Thêm mới" class="btn btn-default" />
+                    <input type="submit" value="Nhập lại" class="btn btn-default" />
+                    <button class="btn btn-default">
+                        @Html.ActionLink("Danh sách", "Index")
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

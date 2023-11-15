@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DuAnFptShop.Models.ProductNew>
+
+<style>
+    .paramNews-content-right-bottom-news {
+        display: flex;
+        padding: 10px 0;
+    }
+
+        .paramNews-content-right-bottom-news img {
+            cursor: pointer;
+        }
+
+        .paramNews-content-right-bottom-news .news-title {
+            padding-left: 10px;
+        }
+
+    .news-title p {
+        color: #444B52;
+        font-size: 15px;
+        padding-bottom: 10px;
+        cursor: pointer;
+    }
+
+        .news-title p:hover {
+            color: #0168FA;
+        }
+
+    .news-title a {
+        font-size: 12px;
+        padding: 5px 10px;
+        color: #6C757D;
+        cursor: pointer;
+    }
+
+        .news-title a:hover {
+            color: #343a40;
+            border-radius: 5px;
+            background-color: #dee2e6;
+        }
+</style>
+
+<body>
+    @foreach (var item in Model)
+    {
+        <div class="paramNews-content-right-bottom-news">
+            <img src="@Url.Content(item.NewsImage)" />
+            <div class="news-title">
+                <p>@Html.DisplayFor(modelitem => item.NewsTitle)</p>
+                <a class="news-tag">@Html.DisplayFor(modelitem => item.NewsTags)</a>
+                <a class="news-tag">Galaxy</a>
+            </div>
+        </div>
+    }
+</body>

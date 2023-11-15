@@ -1,0 +1,96 @@
+﻿@model DuAnFptShop.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .form-horizontal {
+        width: 100%;
+        background-color: #ffffff;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .header-content {
+        width: 100%;
+        background-color: #E1EDDB;
+        color: #91A990;
+        height: 50px;
+        padding: 0px 20px;
+        font-weight: bold;
+    }
+
+        .header-content h4 {
+            line-height: 50px;
+        }
+
+    .control-label {
+        width: 100%;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    dt, dd {
+        padding: 5px 20px;
+    }
+
+    .btn-default {
+        border: 1px solid #CFD5DB;
+        border-radius: 5px;
+    }
+
+    .btn-default:hover{
+    background-color:powderblue;
+    }
+
+        .btn-default a {
+            text-decoration: none;
+            color: #212529;
+        }
+</style>
+
+<div>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <h4>Xem chi tiết</h4>
+            </div>
+        </div>
+    </div>
+    <dl class="dl-horizontal">
+        <div class="container">
+            <dt>
+                @*@Html.DisplayNameFor(model => model.CateName)*@
+                Tên loại hàng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CateName)
+            </dd>
+        </div>
+
+    </dl>
+</div>
+<div class="detail-btn">
+    <div class="container">
+        <div class="detail-btn-content">
+            <button class="btn btn-default"> @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.CateID })</button>
+            <button class="btn btn-default"> @Html.ActionLink("Danh sách", "Index")</button>
+        </div>
+    </div>
+</div>

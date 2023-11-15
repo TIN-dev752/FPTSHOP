@@ -1,0 +1,119 @@
+﻿@model DuAnFptShop.Models.Category
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .form-horizontal {
+        width: 100%;
+        background-color: #ffffff;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .header-content {
+        width: 100%;
+        background-color: #E1EDDB;
+        color: #91A990;
+        height: 50px;
+        padding: 0px 20px;
+        font-weight: bold;
+    }
+
+        .header-content h4 {
+            line-height: 50px;
+        }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .form-group-content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .control-label {
+        width: 100%;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .btn-default {
+        border: 1px solid #CFD5DB;
+        border-radius: 5px;
+    }
+
+    .btn-default:hover{
+    background-color:powderblue;
+    }
+
+        .btn-default a {
+            text-decoration: none;
+            color: #212529;
+        }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h4>Chỉnh sửa</h4>
+                </div>
+            </div>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CateID)
+
+        <div class="form-group">
+            <div class="container">
+                <div class="form-group-content">
+                    @*@Html.LabelFor(model => model.CateName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <label class="control-label col-md-2">Tên loại hàng</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CateName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CateName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="container">
+                <div class="form-group-content">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Lưu" class="btn btn-default" />
+                        <button class="btn btn-default">
+                            @Html.ActionLink("Danh sách", "Index")
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
